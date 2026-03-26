@@ -1,0 +1,29 @@
+# ============================================================================
+# Core Dependencies
+# ============================================================================
+# Required for BEV overlap calculation using rotated rectangle intersection
+shapely>=1.8.0,<3.0.0
+
+# ============================================================================
+# Optional Dependencies
+# ============================================================================
+# Used for optimized array operations and vectorized calculations
+numpy>=1.20.0,<2.0.0
+
+# ============================================================================
+# Development Dependencies
+# ============================================================================
+# Testing framework
+pytest>=7.0.0,<9.0.0
+
+# Property-based testing library
+hypothesis>=6.0.0,<7.0.0
+
+# Code coverage reporting
+pytest-cov>=3.0.0,<6.0.0
+
+# Code formatting
+black>=22.0.0,<25.0.0
+
+# Static type checking
+mypy>=0.950,<2.0.0
