@@ -26,10 +26,33 @@ def calculate_avg_dist(objects: list) -> float:
         total_dist += dist
         
     avg = total_dist / len(objects)
-    # Handle nan/inf just in case math weirdness happens
-    if not math.isfinite(avg):
-        return 0.0
     return avg
+
+
+def calculate_fastest_vel(objects: list) -> float:
+    """Calculate the maximum scalar velocity among all objects."""
+    if not objects:
+        return 0.0
+    max_v = 0.0
+    for obj in objects:
+        # velocity is stored as [vx, vy, vz]
+        v_vec = obj.get('velocity', [0.0, 0.0, 0.0])
+        v_scalar = math.sqrt(sum(x**2 for x in v_vec))
+        if v_scalar > max_v:
+            max_v = v_scalar
+    return max_v
+
+
+def calculate_extreme_distances(objects: list) -> tuple:
+    """Calculate the minimum and maximum Euclidean distance to any object."""
+    if not objects:
+        return 0.0, 0.0
+    dists = []
+    for obj in objects:
+        x, y = obj['bbox'][0], obj['bbox'][1]
+        dist = math.sqrt(x**2 + y**2)
+        dists.append(dist)
+    return min(dists), max(dists)
 
 
 def safe_float(val: float) -> float:
@@ -63,19 +86,18 @@ def main():
             chamfer_dist = frame_t['chamfer_distance']
             ego_vel = frame_t['ego_vel']
             
-            # 2. Temporal Physics
-            delta_ego_vel = ego_vel - frame_prev['ego_vel']
-            ego_accel = delta_ego_vel / dt
-            
             # 3. Scene Complexity
             objs_t = frame_t['object_list']
             objs_prev = frame_prev['object_list']
             
             obj_count = len(objs_t)
-            delta_obj_count = obj_count - len(objs_prev)
             
             # 4. Spatial Dynamics
             avg_dist = calculate_avg_dist(objs_t)
+            
+            # ── New Features from frame t-1 ──
+            fastest_obj_vel = calculate_fastest_vel(objs_prev)
+            nearest_obj_dist, farthest_obj_dist = calculate_extreme_distances(objs_prev)
             
             # 5. Target Generation
             target_confidence = scorer.calculate_score(objs_t, objs_prev)['confidence_score']
@@ -84,19 +106,19 @@ def main():
             row = [
                 safe_float(chamfer_dist),
                 safe_float(ego_vel),
-                safe_float(delta_ego_vel),
-                safe_float(ego_accel),
                 float(obj_count),
-                float(delta_obj_count),
                 safe_float(avg_dist),
+                safe_float(fastest_obj_vel),
+                safe_float(nearest_obj_dist),
+                safe_float(farthest_obj_dist),
                 safe_float(target_confidence)
             ]
             dataset.append(row)
             
     # Write to CSV
     headers = [
-        "chamfer_dist", "ego_vel", "delta_ego_vel", "ego_accel", 
-        "obj_count", "delta_obj_count", "avg_dist", "target_confidence"
+        "chamfer_dist", "ego_vel", "obj_count", "avg_dist", 
+        "fastest_obj_vel", "nearest_obj_dist", "farthest_obj_dist", "target_confidence"
     ]
     
     output_path = "training_data.csv"

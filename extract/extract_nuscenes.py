@@ -105,10 +105,18 @@ def extract_scene(nusc: NuScenes, scene: dict) -> dict:
             x, y, z = ann["translation"]
             w, l, h = ann["size"]
             yaw = quat_to_yaw(ann["rotation"])
+            
+            # ── Get Object Velocity ───────────────────────────────────────────
+            # Using nusc.box_velocity to get [vx, vy, vz] in m/s
+            vel = nusc.box_velocity(ann["token"])
+            if np.any(np.isnan(vel)):
+                vel = np.array([0.0, 0.0, 0.0])
+
             object_list.append({
                 "obj_id": ann["instance_token"],
                 "label":  ann["category_name"],
                 "bbox":   [x, y, z, w, l, h, yaw],
+                "velocity": vel.tolist(),
             })
 
         # ── Assemble frame ────────────────────────────────────────────────

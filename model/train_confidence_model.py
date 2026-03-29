@@ -417,7 +417,7 @@ def main() -> None:
     print(f"Skip Percentage: {roi['skip_percentage']:.2f}%")
     print(f"Skip Accuracy: {roi['skip_accuracy']:.2f}%")
 
-    visuals_output_dir = "outputs"
+    visuals_output_dir = "output"
     os.makedirs(visuals_output_dir, exist_ok=True)
     
     # Generate visualization: predicted vs actual scatter plot
