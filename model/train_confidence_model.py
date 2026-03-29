@@ -218,7 +218,8 @@ def evaluate_model(
 
 def plot_predicted_vs_actual(
     y_test: pd.Series,
-    y_pred: np.ndarray
+    y_pred: np.ndarray,
+    visuals_output_dir: str
 ) -> None:
     """
     Generate scatter plot comparing predicted and actual confidence values.
@@ -248,7 +249,8 @@ def plot_predicted_vs_actual(
     ax.legend()
     
     # Save figure with high resolution
-    plt.savefig('predicted_vs_actual.png', dpi=300, bbox_inches='tight')
+    predicted_vs_actual_path = os.path.join(visuals_output_dir, "predicted_vs_actual.png")
+    plt.savefig(predicted_vs_actual_path, dpi=300, bbox_inches='tight')
     
     # Close figure to free memory resources
     plt.close(fig)
@@ -256,7 +258,8 @@ def plot_predicted_vs_actual(
 
 def plot_feature_importance(
     model: RandomForestRegressor,
-    feature_names: list
+    feature_names: list,
+    visuals_output_dir: str
 ) -> None:
     """
     Generate bar chart showing feature importance scores.
@@ -289,7 +292,8 @@ def plot_feature_importance(
     ax.set_title('Feature Importance for Confidence Prediction')
     
     # Save figure with high resolution
-    plt.savefig('feature_importance.png', dpi=300, bbox_inches='tight')
+    feature_importance_path = os.path.join(visuals_output_dir, "feature_importance.png")
+    plt.savefig(feature_importance_path, dpi=300, bbox_inches='tight')
     
     # Close figure to free memory resources
     plt.close(fig)
@@ -412,12 +416,15 @@ def main() -> None:
     )
     print(f"Skip Percentage: {roi['skip_percentage']:.2f}%")
     print(f"Skip Accuracy: {roi['skip_accuracy']:.2f}%")
+
+    visuals_output_dir = "outputs"
+    os.makedirs(visuals_output_dir, exist_ok=True)
     
     # Generate visualization: predicted vs actual scatter plot
-    plot_predicted_vs_actual(data['y_test'], y_pred)
+    plot_predicted_vs_actual(data['y_test'], y_pred, visuals_output_dir)
     
     # Generate visualization: feature importance bar chart
-    plot_feature_importance(model, data['X_train'].columns.tolist())
+    plot_feature_importance(model, data['X_train'].columns.tolist(), visuals_output_dir)
     
     # Save trained model to disk for deployment
     save_model(model, DEFAULT_MODEL_FILEPATH)
