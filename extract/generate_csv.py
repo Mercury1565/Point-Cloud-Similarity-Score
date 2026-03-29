@@ -117,8 +117,14 @@ def main():
             
     # Write to CSV
     headers = [
-        "chamfer_dist", "ego_vel", "obj_count", "avg_dist", 
-        "fastest_obj_vel", "nearest_obj_dist", "farthest_obj_dist", "target_confidence"
+        "chamfer_dist", 
+        "ego_vel", 
+        "obj_count", 
+        "avg_dist", 
+        "fastest_obj_vel", 
+        "nearest_obj_dist", 
+        "farthest_obj_dist", 
+        "target_confidence"
     ]
     
     output_path = "training_data.csv"

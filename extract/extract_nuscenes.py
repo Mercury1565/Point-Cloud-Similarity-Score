@@ -11,7 +11,7 @@ from pyquaternion import Quaternion
 from nuscenes.nuscenes import NuScenes
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-DATAROOT = "data/"
+DATAROOT = "data/nuscenes"
 VERSION  = "v1.0-mini"
 OUTPUT   = "unified_nuscenes_mini.json"
 LIDAR_CHAN = "LIDAR_TOP"
