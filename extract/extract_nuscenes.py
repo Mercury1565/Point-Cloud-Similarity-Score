@@ -1,8 +1,3 @@
-"""
-Unified Scene Data Extractor for nuScenes-mini
-Outputs: unified_nuscenes_mini.json
-"""
-
 import json
 import os
 import numpy as np
@@ -11,9 +6,9 @@ from pyquaternion import Quaternion
 from nuscenes.nuscenes import NuScenes
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-DATAROOT = "data/"
+DATAROOT = "data/nuscenes"
 VERSION  = "v1.0-mini"
-OUTPUT   = "unified_nuscenes_mini.json"
+OUTPUT   = "data/json/unified_nuscenes_mini.json"
 LIDAR_CHAN = "LIDAR_TOP"
 DOWNSAMPLE = 500
 RANDOM_SEED = 42
@@ -105,10 +100,18 @@ def extract_scene(nusc: NuScenes, scene: dict) -> dict:
             x, y, z = ann["translation"]
             w, l, h = ann["size"]
             yaw = quat_to_yaw(ann["rotation"])
+            
+            # ── Get Object Velocity ───────────────────────────────────────────
+            # Using nusc.box_velocity to get [vx, vy, vz] in m/s
+            vel = nusc.box_velocity(ann["token"])
+            if np.any(np.isnan(vel)):
+                vel = np.array([0.0, 0.0, 0.0])
+
             object_list.append({
                 "obj_id": ann["instance_token"],
                 "label":  ann["category_name"],
                 "bbox":   [x, y, z, w, l, h, yaw],
+                "velocity": vel.tolist(),
             })
 
         # ── Assemble frame ────────────────────────────────────────────────

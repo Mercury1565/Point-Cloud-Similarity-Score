@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import joblib
 from typing import TypedDict, Tuple
 import os
+import glob
 
 class TrainingData(TypedDict):
     """Structure for training data split."""
@@ -43,66 +44,59 @@ DEFAULT_MODEL_FILEPATH = "confidence_rf_model.pkl"
 
 
 def load_and_split_data(
-    filepath: str, 
+    directory_path: str, 
     test_size: float = DEFAULT_TEST_SIZE, 
     random_state: int = DEFAULT_RANDOM_STATE
 ) -> TrainingData:
     """
-    Load training data from CSV and split into training and testing sets.
-    
-    Parameters:
-        filepath: Path to the CSV file containing training data
-        test_size: Proportion of data to use for testing (default: 0.2)
-        random_state: Random seed for reproducible splits (default: 42)
-    
-    Returns:
-        TrainingData dictionary containing X_train, X_test, y_train, y_test
+    Loads all CSV files from a directory, merges them, and splits into sets.
     """
-    # Validate test_size is in valid range (0.0, 1.0)
-    if not (0.0 < test_size < 1.0):
-        raise ValueError(
-            f"test_size must be in range (0.0, 1.0), got {test_size}"
-        )
+    # 1. Validate directory existence
+    if not os.path.isdir(directory_path):
+        raise FileNotFoundError(f"Directory not found: {directory_path}")
+
+    # 2. Get list of all CSV files in the directory
+    csv_files = glob.glob(os.path.join(directory_path, "*.csv"))
     
-    # Validate random_state is a non-negative integer
-    if not isinstance(random_state, int) or random_state < 0:
-        raise ValueError(
-            f"random_state must be a non-negative integer, got {random_state}"
-        )
+    if not csv_files:
+        raise FileNotFoundError(f"No CSV files found in {directory_path}")
+
+    print(f"Found {len(csv_files)} files. Loading data...")
+
+    # 3. Load and concatenate all CSVs
+    df_list = []
+    for file in csv_files:
+        try:
+            temp_df = pd.read_csv(file)
+            df_list.append(temp_df)
+        except Exception as e:
+            print(f"Warning: Could not read {file}. Skipping. Error: {e}")
+
+    if not df_list:
+        raise ValueError("No valid data could be loaded from the CSV files.")
+
+    df = pd.concat(df_list, ignore_index=True)
     
-    # Check if file exists before attempting to load
-    if not os.path.exists(filepath):
-        raise FileNotFoundError(f"Training data file not found: {filepath}")
-    
-    # Load CSV data into pandas DataFrame
-    df = pd.read_csv(filepath)
-    
-    # Identify target column
+    # 4. Process Target Column
     target_col = 'target_confidence'
-    
-    # Validate minimum column count (at least one feature + target)
-    if len(df.columns) < 2:
-        raise ValueError(
-            f"CSV must contain at least one feature column and a target column. Found columns: {df.columns.tolist()}"
-        )
-    
-    # Separate features (X) from target variable (y)
+    if target_col not in df.columns:
+        raise ValueError(f"Target column '{target_col}' not found in the merged data.")
+
+    # Separate features and target
     X = df.drop(columns=[target_col])
     y = df[target_col]
     
-    # Split data into training and testing sets with stratified sampling
+    # Split data
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=test_size, random_state=random_state
     )
     
-    # Return structured dictionary with all data splits
     return TrainingData(
-        X_train=X_train,
-        X_test=X_test,
-        y_train=y_train,
+        X_train=X_train, 
+        X_test=X_test, 
+        y_train=y_train, 
         y_test=y_test
     )
-
 
 def train_model(
     X_train: pd.DataFrame, 
@@ -161,10 +155,10 @@ def train_model(
         )
     
     # Initialize RandomForestRegressor with optimized hyperparameters
-    # n_estimators: number of decision trees in the forest
-    # max_depth: maximum depth of each tree (prevents overfitting)
-    # random_state: ensures reproducible results
-    # n_jobs: number of parallel jobs (-1 uses all available CPU cores)
+        # n_estimators: number of decision trees in the forest
+        # max_depth: maximum depth of each tree (prevents overfitting)
+        # random_state: ensures reproducible results
+        # n_jobs: number of parallel jobs (-1 uses all available CPU cores)
     model = RandomForestRegressor(
         n_estimators=DEFAULT_N_ESTIMATORS,
         max_depth=DEFAULT_MAX_DEPTH,
@@ -218,7 +212,8 @@ def evaluate_model(
 
 def plot_predicted_vs_actual(
     y_test: pd.Series,
-    y_pred: np.ndarray
+    y_pred: np.ndarray,
+    visuals_output_dir: str
 ) -> None:
     """
     Generate scatter plot comparing predicted and actual confidence values.
@@ -248,7 +243,8 @@ def plot_predicted_vs_actual(
     ax.legend()
     
     # Save figure with high resolution
-    plt.savefig('predicted_vs_actual.png', dpi=300, bbox_inches='tight')
+    predicted_vs_actual_path = os.path.join(visuals_output_dir, "predicted_vs_actual.png")
+    plt.savefig(predicted_vs_actual_path, dpi=300, bbox_inches='tight')
     
     # Close figure to free memory resources
     plt.close(fig)
@@ -256,7 +252,8 @@ def plot_predicted_vs_actual(
 
 def plot_feature_importance(
     model: RandomForestRegressor,
-    feature_names: list
+    feature_names: list,
+    visuals_output_dir: str
 ) -> None:
     """
     Generate bar chart showing feature importance scores.
@@ -289,7 +286,8 @@ def plot_feature_importance(
     ax.set_title('Feature Importance for Confidence Prediction')
     
     # Save figure with high resolution
-    plt.savefig('feature_importance.png', dpi=300, bbox_inches='tight')
+    feature_importance_path = os.path.join(visuals_output_dir, "feature_importance.png")
+    plt.savefig(feature_importance_path, dpi=300, bbox_inches='tight')
     
     # Close figure to free memory resources
     plt.close(fig)
@@ -307,10 +305,6 @@ def calculate_roi(
         y_test: Series containing actual confidence scores
         y_pred: Array containing predicted confidence scores
         threshold: Confidence threshold for skip decisions (default: 0.85)
-    
-    Returns:
-        ROIAnalysis dictionary with threshold, total_frames, skip_count, 
-        skip_percentage, correct_skips, skip_accuracy
     """
     # Validate threshold is in valid confidence range
     if not (0.0 <= threshold <= 1.0):
@@ -374,57 +368,42 @@ def save_model(
 
 
 def main() -> None:
-    """
-    Main pipeline orchestration function that executes the complete ML training workflow.
+    # Point to the directory instead of a single file
+    data_dir = os.path.join("data", "csv")
     
-    This function:
-    1. Loads and splits training data
-    2. Trains a RandomForestRegressor model
-    3. Evaluates model performance
-    4. Generates visualizations
-    5. Saves the trained model
-    """
-    # Load training data and split into train/test sets
-    data = load_and_split_data(
-        "training_data.csv",
-        test_size=DEFAULT_TEST_SIZE,
-        random_state=DEFAULT_RANDOM_STATE
-    )
-    
-    # Train RandomForest model on training data
-    model = train_model(data['X_train'], data['y_train'])
-    
-    # Generate predictions on test set for evaluation
-    y_pred = model.predict(data['X_test'])
-    
-    # Evaluate model performance and calculate metrics
-    metrics = evaluate_model(model, data['X_test'], data['y_test'])
-    
-    # Print evaluation metrics to console
-    print(f"MAE: {metrics['mae']:.4f}")
-    print(f"R2 Score: {metrics['r2']:.4f}")
-    
-    # Calculate and print computational ROI metrics
-    roi = calculate_roi(
-        data['y_test'],
-        y_pred,
-        threshold=DEFAULT_CONFIDENCE_THRESHOLD
-    )
-    print(f"Skip Percentage: {roi['skip_percentage']:.2f}%")
-    print(f"Skip Accuracy: {roi['skip_accuracy']:.2f}%")
-    
-    # Generate visualization: predicted vs actual scatter plot
-    plot_predicted_vs_actual(data['y_test'], y_pred)
-    
-    # Generate visualization: feature importance bar chart
-    plot_feature_importance(model, data['X_train'].columns.tolist())
-    
-    # Save trained model to disk for deployment
-    save_model(model, DEFAULT_MODEL_FILEPATH)
-    
-    # Confirm successful model save
-    print(f"Model saved as {DEFAULT_MODEL_FILEPATH}")
+    try:
+        # Load and split using the new directory logic
+        data = load_and_split_data(
+            data_dir,
+            test_size=DEFAULT_TEST_SIZE,
+            random_state=DEFAULT_RANDOM_STATE
+        )
+        
+        # The rest of the pipeline remains the same
+        model = train_model(data['X_train'], data['y_train'])
+        y_pred = model.predict(data['X_test'])
+        
+        metrics = evaluate_model(model, data['X_test'], data['y_test'])
+        
+        print("-" * 30)
+        print(f"Total Samples Loaded: {len(data['X_train']) + len(data['X_test'])}")
+        print(f"MAE: {metrics['mae']:.4f}")
+        print(f"R2 Score: {metrics['r2']:.4f}")
+        print(f"Skip Percentage: {metrics['skip_percentage']:.2f}%")
+        print(f"Skip Accuracy: {metrics['skip_accuracy']:.2f}%")
+        print("-" * 30)
 
+        visuals_output_dir = "output"
+        os.makedirs(visuals_output_dir, exist_ok=True)
+        
+        plot_predicted_vs_actual(data['y_test'], y_pred, visuals_output_dir)
+        plot_feature_importance(model, data['X_train'].columns.tolist(), visuals_output_dir)
+        save_model(model, DEFAULT_MODEL_FILEPATH)
+        
+        print(f"Model saved as {DEFAULT_MODEL_FILEPATH}")
+        
+    except Exception as e:
+        print(f"An error occurred during the pipeline: {e}")
 
 if __name__ == "__main__":
     main()
