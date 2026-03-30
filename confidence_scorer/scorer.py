@@ -1,7 +1,3 @@
-"""Core scoring components for evaluating frame-to-frame similarity in 3D object detection datasets.
-Provides IdentityMatcher (F1-score), GeometryCalculator (3D mIoU), and CompositeScorer methods.
-"""
-
 import math
 from typing import Dict, List, Any, Tuple
 from .types import DetectionObject, ScoreResult
@@ -37,11 +33,6 @@ class IdentityMatcher:
                 tp_pairs.append((obj_t, obj_t_minus_1))
 
         return f1_score, tp_pairs
-
-    # vx, vy
-    # validation process
-    # torch 3d
-
 
 class GeometryCalculator:
     """Calculates 3D Intersection over Union (IoU) for matched object pairs."""

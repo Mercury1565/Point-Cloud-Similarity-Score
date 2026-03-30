@@ -31,7 +31,7 @@ The engine orchestrates a continuous feedback loop:
 You can run a simulation of the engine using the command-line interface:
 
 ```bash
-python -m online_model --csv-path training_data.csv --output-dir output
+python -m online_model --output-dir output
 ```
 
 ### Key Parameters

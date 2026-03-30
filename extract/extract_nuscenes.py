@@ -1,8 +1,3 @@
-"""
-Unified Scene Data Extractor for nuScenes-mini
-Outputs: unified_nuscenes_mini.json
-"""
-
 import json
 import os
 import numpy as np
@@ -13,7 +8,7 @@ from nuscenes.nuscenes import NuScenes
 # ── Configuration ─────────────────────────────────────────────────────────────
 DATAROOT = "data/nuscenes"
 VERSION  = "v1.0-mini"
-OUTPUT   = "unified_nuscenes_mini.json"
+OUTPUT   = "data/json/unified_nuscenes_mini.json"
 LIDAR_CHAN = "LIDAR_TOP"
 DOWNSAMPLE = 500
 RANDOM_SEED = 42

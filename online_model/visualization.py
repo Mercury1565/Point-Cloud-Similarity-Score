@@ -1,5 +1,3 @@
-"""Visualization functions for online perception engine metrics."""
-
 import matplotlib.pyplot as plt
 from online_model.engine import OnlinePerceptionEngine
 import matplotlib.pyplot as plt
@@ -7,16 +5,6 @@ import numpy as np
 
 
 def generate_learning_curve(engine: OnlinePerceptionEngine, output_path: str) -> None:
-    """Generate learning curve visualization showing model adaptation over time.
-    
-    Creates a matplotlib figure plotting prediction errors (MAE) at audit frames
-    to visualize how the model's prediction accuracy changes as it learns from
-    streaming data.
-    
-    Args:
-        engine: OnlinePerceptionEngine instance with processed decisions
-        output_path: File path where the figure should be saved (e.g., "learning_curve.png")
-    """
     # Extract audit frame indices and prediction errors from decisions
     audit_frames = [d.frame_idx for d in engine.decisions if d.is_audit_frame]
     errors = [d.prediction_error for d in engine.decisions if d.is_audit_frame]
@@ -45,16 +33,6 @@ def generate_learning_curve(engine: OnlinePerceptionEngine, output_path: str) ->
 
 
 def generate_confidence_comparison(engine: OnlinePerceptionEngine, output_path: str) -> None:
-    """Generate confidence comparison visualization showing predicted vs actual confidence.
-    
-    Creates a matplotlib figure plotting predicted and actual confidence values over time,
-    along with horizontal lines for confidence_threshold and safety_threshold to visualize
-    decision boundaries and safety margins.
-    
-    Args:
-        engine: OnlinePerceptionEngine instance with processed decisions
-        output_path: File path where the figure should be saved (e.g., "confidence_comparison.png")
-    """
     # Extract frame indices, predicted confidence, and actual confidence from decisions
     frame_indices = [d.frame_idx for d in engine.decisions]
     predicted = [d.predicted_confidence for d in engine.decisions]
@@ -95,9 +73,6 @@ def generate_confidence_comparison(engine: OnlinePerceptionEngine, output_path: 
     plt.close()
 
 def generate_decision_histogram(engine: OnlinePerceptionEngine, output_path: str):
-    """
-    Categorizes and plots the distribution of predicted confidence scores.
-    """
     decisions = engine.decisions
     preds = [d.predicted_confidence for d in decisions]
     actuals = [d.actual_confidence for d in decisions]

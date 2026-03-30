@@ -1,7 +1,3 @@
-"""
-Data Audit and Confidence Visualization for unified_nuscenes_mini.json
-"""
-
 import json
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,5 +1,3 @@
-"""Main orchestrator for online learning perception system."""
-
 from typing import List, Optional
 import numpy as np
 from sklearn.linear_model import SGDRegressor
@@ -9,26 +7,6 @@ from online_model.types import FrameDecision, PerformanceMetrics
 
 
 class OnlinePerceptionEngine:
-    """Main orchestrator for online learning perception system.
-    
-    The OnlinePerceptionEngine manages the online learning workflow for vehicle
-    perception decisions. It uses an SGDRegressor model to predict confidence scores
-    and decides whether to reuse previous detection results or run full detection,
-    while periodically updating its weights based on ground-truth audits.
-    
-    Attributes:
-        confidence_threshold: Predicted confidence above which REUSE is chosen
-        audit_interval: Number of frames between model updates
-        seed_batch_size: Initial number of frames for model warm-up
-        reuse_latency_ms: Latency in milliseconds for REUSE decision
-        full_detection_latency_ms: Latency in milliseconds for FULL_DETECTION
-        safety_threshold: Actual confidence below which REUSE is unsafe
-        model: SGDRegressor instance for incremental learning
-        scaler: StandardScaler instance for online feature scaling
-        decisions: List of all frame decisions made
-        metrics: Aggregated performance metrics
-    """
-    
     def __init__(
         self,
         confidence_threshold: float = 0.85,
@@ -38,16 +16,6 @@ class OnlinePerceptionEngine:
         full_detection_latency_ms: float = 80.0,
         safety_threshold: float = 0.70
     ):
-        """Initialize the OnlinePerceptionEngine with configuration parameters.
-        
-        Args:
-            confidence_threshold: Predicted confidence above which REUSE is chosen (default 0.85)
-            audit_interval: Number of frames between model updates (default 5)
-            seed_batch_size: Initial number of frames for model warm-up (default 50)
-            reuse_latency_ms: Latency in milliseconds for REUSE decision (default 0.5)
-            full_detection_latency_ms: Latency in milliseconds for FULL_DETECTION (default 80.0)
-            safety_threshold: Actual confidence below which REUSE is unsafe (default 0.70)
-        """
         self.confidence_threshold = confidence_threshold
         self.audit_interval = audit_interval
         self.seed_batch_size = seed_batch_size
@@ -60,16 +28,8 @@ class OnlinePerceptionEngine:
         self.metrics: Optional[PerformanceMetrics] = None
     
     def initialize_model(self, X_seed: np.ndarray, y_seed: np.ndarray) -> None:
-        """Initialize SGDRegressor with seed batch for warm-up.
-        
-        Args:
-            X_seed: 2D numpy array with shape (n_samples, n_features) containing feature vectors
-            y_seed: 1D numpy array with shape (n_samples,) containing target confidence values
-        
-        Raises:
-            ValueError: If X_seed is not 2D, y_seed is not 1D, lengths don't match,
-                       less than 1 sample, or data contains NaN/infinite values
-        """
+        """Initialize SGDRegressor with seed batch for warm-up."""
+
         # Validate X_seed shape is 2D
         if X_seed.ndim != 2:
             raise ValueError(f"X_seed must be 2D array, got {X_seed.ndim}D")
@@ -125,15 +85,8 @@ class OnlinePerceptionEngine:
 
 
     def make_decision(self, predicted_confidence: float) -> str:
-        """Determine whether to REUSE or run FULL_DETECTION based on predicted confidence.
+        """Determine whether to REUSE or run FULL_DETECTION based on predicted confidence. """
 
-        Args:
-            predicted_confidence: The predicted confidence value from the model
-
-        Returns:
-            "REUSE" if predicted_confidence > self.confidence_threshold,
-            "FULL_DETECTION" otherwise
-        """
         if predicted_confidence > self.confidence_threshold:
             return "REUSE"
         else:
@@ -145,16 +98,10 @@ class OnlinePerceptionEngine:
         y_actual: float, 
         predicted_confidence: float
     ) -> float:
-        """Calculate prediction error and update model weights incrementally.
-        
-        Args:
-            X_current: 1D numpy array with shape (n_features,) containing current frame features
-            y_actual: Ground-truth confidence value for the current frame
-            predicted_confidence: Predicted confidence value from the model
-        
-        Returns:
-            Prediction error as absolute difference between y_actual and predicted_confidence
         """
+        Calculate prediction error and update model weights incrementally.
+        """
+
         # Calculate prediction error
         prediction_error = abs(y_actual - predicted_confidence)
         
@@ -178,19 +125,8 @@ class OnlinePerceptionEngine:
         X_current: np.ndarray, 
         y_actual: float
     ) -> FrameDecision:
-        """Process a single streaming frame: predict, decide, optionally audit and update.
-        
-        Args:
-            frame_idx: Index of the current frame
-            X_current: 1D numpy array with shape (n_features,) containing current frame features
-            y_actual: Ground-truth confidence value for the current frame
-        
-        Returns:
-            FrameDecision object containing prediction, decision, and audit information
-        
-        Raises:
-            ValueError: If model is not initialized, X_current has wrong dimensionality,
-                       or y_actual is out of range [0.0, 1.0]
+        """
+        Process a single streaming frame: predict, decide, optionally audit and update.
         """
         # Validate model is initialized
         if self.model is None:
@@ -243,10 +179,8 @@ class OnlinePerceptionEngine:
         return decision
 
     def calculate_metrics(self) -> PerformanceMetrics:
-        """Aggregate performance metrics from all processed frames.
-        
-        Returns:
-            PerformanceMetrics object containing aggregated statistics
+        """
+        Aggregate performance metrics from all processed frames.
         """
         # Initialize counters
         total_frames = len(self.decisions)

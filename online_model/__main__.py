@@ -1,28 +1,13 @@
-"""Command-line interface for the Online Perception Engine."""
-
 import argparse
 import os
 from online_model.simulation import run_simulation
 
 def main():
-    """Main entry point for the Online Perception Engine CLI.
-    
-    Parses command-line arguments, runs the simulation, prints metrics summary,
-    and generates visualization plots.
-    """
     # Create argument parser
     parser = argparse.ArgumentParser(
         description="Run the Online Perception Engine simulation on CSV data"
     )
-    
-    # Add required argument: --csv-path
-    parser.add_argument(
-        "--csv-path",
-        type=str,
-        required=True,
-        help="Path to CSV file containing training data"
-    )
-    
+
     # Add optional argument: --output-dir (default: "output")
     parser.add_argument(
         "--output-dir",
@@ -62,7 +47,6 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
     
     # Call run_simulation() with provided arguments
-    print(f"Running simulation on {args.csv_path}...")
     print(f"Configuration:")
     print(f"  - Confidence Threshold: {args.confidence_threshold}")
     print(f"  - Audit Interval: {args.audit_interval}")
@@ -70,7 +54,7 @@ def main():
     print()
     
     metrics = run_simulation(
-        csv_path=args.csv_path,
+        csv_dir="data/csv",
         visuals_output_dir=args.output_dir,
         confidence_threshold=args.confidence_threshold,
         audit_interval=args.audit_interval,
@@ -95,8 +79,5 @@ def main():
     print("=" * 60)
     print()
     
-    
-   
-
 if __name__ == "__main__":
     main()

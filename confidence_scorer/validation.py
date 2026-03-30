@@ -1,5 +1,3 @@
-"""Validation utilities for input data."""
-
 from typing import List, Dict, Any
 import math
 

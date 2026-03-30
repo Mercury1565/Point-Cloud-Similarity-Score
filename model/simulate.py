@@ -4,24 +4,37 @@ import pandas as pd
 import numpy as np
 import joblib
 import pickle
+import glob
 
 def load_pkl(path):
     """Safely load a pickle file either via joblib or pickle."""
-    if joblib is not None:
-        try:
-            return joblib.load(path)
-        except Exception:
-            pass
-    with open(path, 'rb') as f:
-        return pickle.load(f)
+    try:
+        return joblib.load(path)
+    except Exception:
+        with open(path, 'rb') as f:
+            return pickle.load(f)
 
 def main():
     model_path = 'confidence_rf_model.pkl'
-    data_path = 'training_data.csv'
+    # Updated to point to the directory
+    data_dir = os.path.join('data', 'csv')
     
-    print(f"Loading assets: {model_path} and {data_path}...")
+    if not os.path.exists(model_path):
+        print(f"Error: Model file {model_path} not found.")
+        return
+
+    # 1. Find and load all CSV files
+    csv_files = glob.glob(os.path.join(data_dir, "*.csv"))
+    if not csv_files:
+        print(f"Error: No CSV files found in {data_dir}")
+        return
+
+    print(f"Loading model: {model_path}")
     model = load_pkl(model_path)
-    df = pd.read_csv(data_path)
+    
+    print(f"Loading {len(csv_files)} data files from {data_dir}...")
+    df_list = [pd.read_csv(f) for f in csv_files]
+    df = pd.concat(df_list, ignore_index=True)
     
     # Define System Constants
     HEAVY_DETECTOR_LATENCY = 80.0  # ms
@@ -35,24 +48,28 @@ def main():
     safety_failures = 0
     
     # Isolate features and target confidence
+    if 'target_confidence' not in df.columns:
+        print("Error: 'target_confidence' column missing from data.")
+        return
+        
     features = df.drop(columns=['target_confidence'])
     targets = df['target_confidence'].values
     
-    print("\nRunning Simulation Loop...")
+    print(f"\nRunning Simulation Loop on {total_frames} frames...")
     start_time = time.time()
     
     # Simulation Loop
+    # Note: iterating via iloc can be slow for very large DataFrames. 
+    # For massive datasets, consider model.predict(features) in bulk first.
     for i in range(total_frames):
-        # Extract features for current frame
         frame_features = features.iloc[[i]]
         actual_target = targets[i]
         
-        # Predict confidence using the lightweight RF model
+        # Predict confidence
         pred_conf = model.predict(frame_features)[0]
         
         # Decision Logic
         if pred_conf > REUSE_THRESHOLD:
-            action = "REUSE"
             cost = RF_MODEL_LATENCY
             reuse_count += 1
             
@@ -60,7 +77,6 @@ def main():
             if actual_target < 0.75:
                 safety_failures += 1
         else:
-            action = "DETECT"
             cost = RF_MODEL_LATENCY + HEAVY_DETECTOR_LATENCY
             detect_count += 1
             
@@ -69,16 +85,14 @@ def main():
     sim_dur = time.time() - start_time
     print(f"Simulation completed in {sim_dur:.3f} seconds.\n")
     
-    # Performance Metrics Calculations
-    skip_rate = (reuse_count / total_frames) * 100.0
-
-    # Calculate latency per 100 frames
-    avg_latency_100 = (cumulative_latency_system / total_frames) * 100
+    # Performance Metrics
+    skip_rate = (reuse_count / total_frames) * 100.0 if total_frames > 0 else 0
+    avg_latency_100 = (cumulative_latency_system / total_frames) * 100 if total_frames > 0 else 0
     
-    # Print Metrics
     print("=" * 55)
     print("                PERFORMANCE METRICS")
     print("=" * 55)
+    print(f"Files Processed        : {len(csv_files)}")
     print(f"Total Frames Processed : {total_frames}")
     print(f"Skip Rate              : {skip_rate:.2f}%")
     print(f"Cumulative Latency     : {cumulative_latency_system:.2f} ms")
