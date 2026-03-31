@@ -62,74 +62,72 @@ def extract_scene(nusc: NuScenes, scene: dict) -> dict:
         "frame_list": [],
     }
 
-    prev_pts       = None
-    prev_ego_pose  = None
-    sample_token   = scene["first_sample_token"]
+    first_sample_token = scene["first_sample_token"]
+    first_sample = nusc.get("sample", first_sample_token)
+    sd_token = first_sample["data"][LIDAR_CHAN]
+    
+    sd = nusc.get("sample_data", sd_token)
+    while sd["prev"]:
+        sd = nusc.get("sample_data", sd["prev"])
 
-    while sample_token:
-        sample = nusc.get("sample", sample_token)
+    prev_pts = None
+    prev_ego_pose = None
 
-        # ── LIDAR_TOP sample data & ego_pose ──────────────────────────────
-        sd = get_lidar_sample_data(nusc, sample_token)
+    while sd:
+        # Ego Pose
         ego_pose = nusc.get("ego_pose", sd["ego_pose_token"])
-
-        # ── Chamfer distance ──────────────────────────────────────────────
         lidar_path = nusc.get_sample_data_path(sd["token"])
         curr_pts = downsample(load_pointcloud(lidar_path), DOWNSAMPLE)
 
-        if prev_pts is None:
-            cd = 0.0
-        else:
-            cd = chamfer_distance(curr_pts, prev_pts)
-
-        # ── Ego velocity ──────────────────────────────────────────────────
-        if prev_ego_pose is None:
-            ego_vel = 0.0
-        else:
-            dt = (ego_pose["timestamp"] - prev_ego_pose["timestamp"]) * 1e-6  # µs → s
+        # Metrics
+        cd = chamfer_distance(curr_pts, prev_pts) if prev_pts is not None else 0.0
+        ego_vel = 0.0
+        if prev_ego_pose:
+            dt = (ego_pose["timestamp"] - prev_ego_pose["timestamp"]) * 1e-6
             if dt > 0:
                 delta = np.array(ego_pose["translation"]) - np.array(prev_ego_pose["translation"])
                 ego_vel = float(np.linalg.norm(delta) / dt)
-            else:
-                ego_vel = 0.0
 
-        # ── Object list ───────────────────────────────────────────────────
+        # Box Interpolation
         object_list = []
-        for ann_token in sample["anns"]:
-            ann = nusc.get("sample_annotation", ann_token)
-            x, y, z = ann["translation"]
-            w, l, h = ann["size"]
-            yaw = quat_to_yaw(ann["rotation"])
+        boxes = nusc.get_boxes(sd["token"]) 
+        
+        for box in boxes:
+            x, y, z = box.center
+            w, l, h = box.wlh
+            yaw = quat_to_yaw(box.orientation.elements.tolist())
             
-            # ── Get Object Velocity ───────────────────────────────────────────
-            # Using nusc.box_velocity to get [vx, vy, vz] in m/s
-            vel = nusc.box_velocity(ann["token"])
+            # Velocity is typically stored in the box if available from the sample
+            vel = nusc.box_velocity(box.token) 
             if np.any(np.isnan(vel)):
-                vel = np.array([0.0, 0.0, 0.0])
+                vel = [0.0, 0.0, 0.0]
+            else:
+                vel = vel.tolist()
 
             object_list.append({
-                "obj_id": ann["instance_token"],
-                "label":  ann["category_name"],
+                "obj_id": box.token,
+                "label":  box.name,
                 "bbox":   [x, y, z, w, l, h, yaw],
-                "velocity": vel.tolist(),
+                "velocity": vel,
+                "is_key_frame": sd["is_key_frame"]
             })
 
-        # ── Assemble frame ────────────────────────────────────────────────
-        frame = {
-            "frame_id":         sample_token,
+        # Assemble
+        scene_out["frame_list"].append({
+            "frame_id":     sd["token"],
+            "timestamp":    sd["timestamp"],
+            "is_key_frame": sd["is_key_frame"],
             "chamfer_distance": cd,
-            "ego_vel":          ego_vel,
-            "object_list":      object_list,
-        }
-        scene_out["frame_list"].append(frame)
+            "ego_vel":      ego_vel,
+            "object_list":  object_list,
+        })
 
-        # ── Advance ───────────────────────────────────────────────────────
-        prev_pts      = curr_pts
+        # Move to NEXT SWEEP
+        prev_pts = curr_pts
         prev_ego_pose = ego_pose
-        sample_token  = sample["next"] if sample["next"] else None
+        sd = nusc.get("sample_data", sd["next"]) if sd["next"] else None
 
     return scene_out
-
 
 def main():
     nusc = NuScenes(version=VERSION, dataroot=DATAROOT, verbose=True)
