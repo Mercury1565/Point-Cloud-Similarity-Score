@@ -1,0 +1,76 @@
+SGD Permutation Report — Per-Dataset
+Generated : 2026-04-03 15:58:18
+Data source: data/csv
+
+=========================================================================================================================================
+Dataset: KITTI
+=========================================================================================================================================
+Run                   learning_rate   eta0     penalty     alpha    average    REUSE %    Avg MAE    Safety Viol.    Latency Saved (ms)
+-----------------------------------------------------------------------------------------------------------------------------------------
+baseline              constant        0.01     l2          0.001    False      0.0%       0.1038     0               0                  <-- most REUSE
+high_lr               constant        0.1      l2          0.001    False      0.0%       0.0889     0               0                  <-- most REUSE
+low_lr                constant        0.001    l2          0.001    False      0.0%       0.1032     0               0                  <-- most REUSE
+l1_penalty            constant        0.01     l1          0.001    False      0.0%       0.1037     0               0                  <-- most REUSE
+high_alpha            constant        0.01     l2          0.01     False      0.0%       0.1036     0               0                  <-- most REUSE
+adaptive_lr           adaptive        0.01     l2          0.001    False      0.0%       0.1038     0               0                  <-- most REUSE
+averaged              constant        0.01     l2          0.001    True       0.0%       0.1036     0               0                  <-- most REUSE
+no_penalty_high_lr    constant        0.05     None        0.0      False      0.0%       0.0617     0               0                  <-- best MAE <-- most REUSE
+
+=========================================================================================================================================
+Dataset: NUSCENES
+=========================================================================================================================================
+Run                   learning_rate   eta0     penalty     alpha    average    REUSE %    Avg MAE    Safety Viol.    Latency Saved (ms)
+-----------------------------------------------------------------------------------------------------------------------------------------
+baseline              constant        0.01     l2          0.001    False      47.4%      0.1411     0               146042            
+high_lr               constant        0.1      l2          0.001    False      68.6%      0.2696     0               211390            
+low_lr                constant        0.001    l2          0.001    False      1.1%       0.5545     0               3339              
+l1_penalty            constant        0.01     l1          0.001    False      47.3%      0.1403     0               145803            
+high_alpha            constant        0.01     l2          0.01     False      47.4%      0.1395     0               145882            
+adaptive_lr           adaptive        0.01     l2          0.001    False      47.4%      0.1408     0               146121            
+averaged              constant        0.01     l2          0.001    True       14.4%      0.5257     0               44282             
+no_penalty_high_lr    constant        0.05     None        0.0      False      75.6%      0.0564     0               233014             <-- best MAE <-- most REUSE
+
+=========================================================================================================================================
+Cross-Dataset Compare & Contrast
+=========================================================================================================================================
+
+[baseline]
+  kitti       REUSE=0.0%  MAE=0.1038  violations=0  latency_saved=0 ms
+  nuscenes    REUSE=47.4%  MAE=0.1411  violations=0  latency_saved=146042 ms
+
+[high_lr]
+  kitti       REUSE=0.0%  MAE=0.0889  violations=0  latency_saved=0 ms
+  nuscenes    REUSE=68.6%  MAE=0.2696  violations=0  latency_saved=211390 ms
+
+[low_lr]
+  kitti       REUSE=0.0%  MAE=0.1032  violations=0  latency_saved=0 ms
+  nuscenes    REUSE=1.1%  MAE=0.5545  violations=0  latency_saved=3339 ms
+
+[l1_penalty]
+  kitti       REUSE=0.0%  MAE=0.1037  violations=0  latency_saved=0 ms
+  nuscenes    REUSE=47.3%  MAE=0.1403  violations=0  latency_saved=145803 ms
+
+[high_alpha]
+  kitti       REUSE=0.0%  MAE=0.1036  violations=0  latency_saved=0 ms
+  nuscenes    REUSE=47.4%  MAE=0.1395  violations=0  latency_saved=145882 ms
+
+[adaptive_lr]
+  kitti       REUSE=0.0%  MAE=0.1038  violations=0  latency_saved=0 ms
+  nuscenes    REUSE=47.4%  MAE=0.1408  violations=0  latency_saved=146121 ms
+
+[averaged]
+  kitti       REUSE=0.0%  MAE=0.1036  violations=0  latency_saved=0 ms
+  nuscenes    REUSE=14.4%  MAE=0.5257  violations=0  latency_saved=44282 ms
+
+[no_penalty_high_lr]
+  kitti       REUSE=0.0%  MAE=0.0617  violations=0  latency_saved=0 ms
+  nuscenes    REUSE=75.6%  MAE=0.0564  violations=0  latency_saved=233014 ms
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Notes
+-----
+REUSE %        : fraction of frames skipping full detection (higher = more efficient).
+Avg MAE        : mean absolute prediction error on audit frames (lower = better).
+Safety Viol.   : REUSE decisions where actual confidence < safety threshold.
+Latency Saved  : cumulative ms saved by REUSE over full detection.

@@ -105,7 +105,7 @@ def extract_scene(nusc: NuScenes, scene: dict) -> dict:
                 vel = vel.tolist()
 
             object_list.append({
-                "obj_id": box.token,
+                "obj_id": nusc.get("sample_annotation", box.token)["instance_token"],
                 "label":  box.name,
                 "bbox":   [x, y, z, w, l, h, yaw],
                 "velocity": vel,

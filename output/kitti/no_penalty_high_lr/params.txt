@@ -1,0 +1,18 @@
+Run     : no_penalty_high_lr
+Dataset : kitti
+Generated: 2026-04-03 15:58:12
+
+SGDRegressor Parameters
+------------------------------
+  learning_rate : constant
+  eta0          : 0.05
+  penalty       : None
+  alpha         : 0.0
+  average       : False
+
+Simulation Parameters
+------------------------------
+  seed_batch_size     : 50
+  confidence_threshold: 0.85
+  audit_interval      : 5
+  safety_threshold    : 0.7

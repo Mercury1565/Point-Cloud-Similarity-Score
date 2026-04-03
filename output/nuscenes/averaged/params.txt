@@ -1,0 +1,18 @@
+Run     : averaged
+Dataset : nuscenes
+Generated: 2026-04-03 15:58:17
+
+SGDRegressor Parameters
+------------------------------
+  learning_rate : constant
+  eta0          : 0.01
+  penalty       : l2
+  alpha         : 0.001
+  average       : True
+
+Simulation Parameters
+------------------------------
+  seed_batch_size     : 50
+  confidence_threshold: 0.85
+  audit_interval      : 5
+  safety_threshold    : 0.7

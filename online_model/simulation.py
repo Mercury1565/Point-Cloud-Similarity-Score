@@ -19,7 +19,12 @@ def run_simulation(
     seed_batch_size: int = 50,
     reuse_latency_ms: float = 0.5,
     full_detection_latency_ms: float = 80.0,
-    safety_threshold: float = 0.70
+    safety_threshold: float = 0.70,
+    sgd_learning_rate: str = 'constant',
+    sgd_eta0: float = 0.01,
+    sgd_penalty: str = 'l2',
+    sgd_alpha: float = 0.001,
+    sgd_average: bool = False
 ) -> PerformanceMetrics:
     """Run the online learning simulation on a directory of CSV data."""
     
@@ -72,10 +77,15 @@ def run_simulation(
         seed_batch_size=seed_batch_size,
         reuse_latency_ms=reuse_latency_ms,
         full_detection_latency_ms=full_detection_latency_ms,
-        safety_threshold=safety_threshold
+        safety_threshold=safety_threshold,
+        sgd_learning_rate=sgd_learning_rate,
+        sgd_eta0=sgd_eta0,
+        sgd_penalty=sgd_penalty,
+        sgd_alpha=sgd_alpha,
+        sgd_average=sgd_average
     )
     
-    engine.initialize_model(X_seed, y_seed)
+    engine.initialize_model(X_seed, y_seed, X_scaler=X)
     
     # 5. Process Streaming Frames
     print(f"Processing {len(X) - seed_batch_size} streaming frames...")

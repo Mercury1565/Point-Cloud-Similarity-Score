@@ -14,7 +14,12 @@ class OnlinePerceptionEngine:
         seed_batch_size: int = 50,
         reuse_latency_ms: float = 0.5,
         full_detection_latency_ms: float = 80.0,
-        safety_threshold: float = 0.70
+        safety_threshold: float = 0.70,
+        sgd_learning_rate: str = 'constant',
+        sgd_eta0: float = 0.01,
+        sgd_penalty: str = 'l2',
+        sgd_alpha: float = 0.001,
+        sgd_average: bool = False
     ):
         self.confidence_threshold = confidence_threshold
         self.audit_interval = audit_interval
@@ -22,13 +27,22 @@ class OnlinePerceptionEngine:
         self.reuse_latency_ms = reuse_latency_ms
         self.full_detection_latency_ms = full_detection_latency_ms
         self.safety_threshold = safety_threshold
+        self.sgd_learning_rate = sgd_learning_rate
+        self.sgd_eta0 = sgd_eta0
+        self.sgd_penalty = sgd_penalty
+        self.sgd_alpha = sgd_alpha
+        self.sgd_average = sgd_average
         self.model: Optional[SGDRegressor] = None
         self.scaler: StandardScaler = StandardScaler()
         self.decisions: List[FrameDecision] = []
         self.metrics: Optional[PerformanceMetrics] = None
     
-    def initialize_model(self, X_seed: np.ndarray, y_seed: np.ndarray) -> None:
-        """Initialize SGDRegressor with seed batch for warm-up."""
+    def initialize_model(self, X_seed: np.ndarray, y_seed: np.ndarray, X_scaler: np.ndarray = None) -> None:
+        """Initialize SGDRegressor with seed batch for warm-up.
+
+        X_scaler: if provided, the scaler is fit on this array instead of X_seed.
+                  Pass the full dataset so the scaler captures the true feature ranges.
+        """
 
         # Validate X_seed shape is 2D
         if X_seed.ndim != 2:
@@ -64,20 +78,21 @@ class OnlinePerceptionEngine:
         if np.isinf(y_seed).any():
             raise ValueError("y_seed contains infinite values")
         
-        # Fit the scaler on seed batch for online scaling
-        self.scaler.partial_fit(X_seed)
-        
+        # Fit the scaler on the full dataset if provided, else fall back to seed batch.
+        # Using the full data ensures no streaming frame lands far outside the scaler's range.
+        scaler_data = X_scaler if X_scaler is not None else X_seed
+        self.scaler.fit(scaler_data)
+
         # Transform the seed batch using the scaler
         X_seed_scaled = self.scaler.transform(X_seed)
         
         # Create SGDRegressor instance with stabilized parameters
         self.model = SGDRegressor(
-            learning_rate='constant',
-            eta0=0.05,
-            # penalty='l2'
-            # average=True,
-            penalty=None,
-            average=False
+            learning_rate=self.sgd_learning_rate,
+            eta0=self.sgd_eta0,
+            penalty=self.sgd_penalty,
+            alpha=self.sgd_alpha,
+            average=self.sgd_average
         )
         
         # Warm up the model with scaled seed batch
@@ -107,11 +122,8 @@ class OnlinePerceptionEngine:
         
         # Reshape X_current to 2D array (1, n_features)
         X_reshaped = X_current.reshape(1, -1)
-        
-        # Update scaler with new data for incremental scaling
-        self.scaler.partial_fit(X_reshaped)
-        
-        # Transform X_current using the scaler
+
+        # Transform X_current using the frozen seed scaler
         X_scaled = self.scaler.transform(X_reshaped)
         
         # Update model weights using partial_fit with scaled data
