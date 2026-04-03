@@ -58,10 +58,13 @@ def safe_float(val: float) -> float:
 
 
 def main():
-    scorer = ConfidenceScorer()
+    # Reset label weighting to baseline
+    m_f1 = 0.5
+    m_miou = 0.5
+    scorer = ConfidenceScorer(w_f1=m_f1, w_miou=m_miou)
     
     # Load the unified JSON representation
-    with open('data/json/unified_nuscenes_mini.json', 'r') as f:
+    with open('unified_nuscenes_mini.json', 'r') as f:
         data = json.load(f)
         
     dataset = []
@@ -95,10 +98,14 @@ def main():
             nearest_obj_dist, farthest_obj_dist = calculate_extreme_distances(objs_prev)
             
             # 5. Target Generation
-            target_confidence = scorer.calculate_score(objs_t, objs_prev)['confidence_score']
+            score = scorer.calculate_score(objs_t, objs_prev)
+            f1 = score['f1']
+            miou = score['miou']
+            target_confidence = score['confidence_score']
             
             # Clean elements
             row = [
+                scene['scene_id'],
                 safe_float(chamfer_dist),
                 safe_float(ego_vel),
                 float(obj_count),
@@ -106,19 +113,24 @@ def main():
                 safe_float(fastest_obj_vel),
                 safe_float(nearest_obj_dist),
                 safe_float(farthest_obj_dist),
+                safe_float(f1),
+                safe_float(miou),
                 safe_float(target_confidence)
             ]
             dataset.append(row)
-            
+
     # Write to CSV
     headers = [
-        "chamfer_dist", 
-        "ego_vel", 
-        "obj_count", 
-        "avg_dist", 
-        "fastest_obj_vel", 
-        "nearest_obj_dist", 
-        "farthest_obj_dist", 
+        "scene_id",
+        "chamfer_dist",
+        "ego_vel",
+        "obj_count",
+        "avg_dist",
+        "fastest_obj_vel",
+        "nearest_obj_dist",
+        "farthest_obj_dist",
+        "f1",
+        "miou",
         "target_confidence"
     ]
 
@@ -143,7 +155,10 @@ def main():
     
     # Print top 5 values nicely formatted
     for row in dataset[:5]:
-        row_fmt = "".join([f"{val:>15.4f}" for val in row])
+        row_fmt = "".join([
+            f"{val:>15}" if isinstance(val, str) else f"{val:>15.4f}"
+            for val in row
+        ])
         print(row_fmt)
 
 

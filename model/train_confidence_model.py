@@ -82,8 +82,9 @@ def load_and_split_data(
     if target_col not in df.columns:
         raise ValueError(f"Target column '{target_col}' not found in the merged data.")
 
-    # Separate features and target
-    X = df.drop(columns=[target_col])
+    # Separate features and target — drop non-feature columns
+    drop_cols = [target_col] + [c for c in ["scene_id"] if c in df.columns]
+    X = df.drop(columns=drop_cols)
     y = df[target_col]
     
     # Split data

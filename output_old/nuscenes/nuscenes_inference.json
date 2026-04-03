@@ -1,0 +1,2898 @@
+{
+  "dataset": "nuscenes",
+  "seed_fraction": 0.15,
+  "seed_scenes": [
+    "cc8c0bf57f984915a77078b10eb33198",
+    "fcbccedd61424f1b85dcbf8f897f9754"
+  ],
+  "streaming_scenes": [
+    "6f83169d067343658251f72e1dd17dbc",
+    "bebf5f5b2a674631ab5c88fd1aa9e87a",
+    "2fc3753772e241f2ab2cd16a784cc680",
+    "c5224b9b454b4ded9b5d2d2634bbda8a",
+    "325cef682f064c55a255f2625c533b75",
+    "d25718445d89453381c659b9c8734939",
+    "de7d80a1f5fb4c3e82ce8a4f213b450a",
+    "e233467e827140efa4b42d2b4c435855"
+  ],
+  "metrics": {
+    "total_frames": 317,
+    "reuse_count": 0,
+    "full_detection_count": 317,
+    "reuse_rate_pct": 0.0,
+    "safety_violations": 0,
+    "avg_prediction_error": 0.125704,
+    "cumulative_latency_saved_ms": 0.0
+  },
+  "scenes": {
+    "6f83169d067343658251f72e1dd17dbc": [
+      {
+        "frame_idx": 0,
+        "predicted_confidence": 0.623871,
+        "predicted_std": 0.239236,
+        "actual_confidence": 0.750792,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.12692,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 1,
+        "predicted_confidence": 0.652275,
+        "predicted_std": 0.228152,
+        "actual_confidence": 0.733887,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 2,
+        "predicted_confidence": 0.625669,
+        "predicted_std": 0.231133,
+        "actual_confidence": 0.753396,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 3,
+        "predicted_confidence": 0.627002,
+        "predicted_std": 0.232539,
+        "actual_confidence": 0.751864,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 4,
+        "predicted_confidence": 0.642042,
+        "predicted_std": 0.230864,
+        "actual_confidence": 0.74833,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 5,
+        "predicted_confidence": 0.644394,
+        "predicted_std": 0.229919,
+        "actual_confidence": 0.743632,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.099238,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 6,
+        "predicted_confidence": 0.648516,
+        "predicted_std": 0.224209,
+        "actual_confidence": 0.749535,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 7,
+        "predicted_confidence": 0.641763,
+        "predicted_std": 0.228088,
+        "actual_confidence": 0.751501,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 8,
+        "predicted_confidence": 0.707963,
+        "predicted_std": 0.231648,
+        "actual_confidence": 0.753058,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 9,
+        "predicted_confidence": 0.760918,
+        "predicted_std": 0.231928,
+        "actual_confidence": 0.735641,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 10,
+        "predicted_confidence": 0.703866,
+        "predicted_std": 0.228446,
+        "actual_confidence": 0.742623,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.038758,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 11,
+        "predicted_confidence": 0.697742,
+        "predicted_std": 0.222569,
+        "actual_confidence": 0.74343,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 12,
+        "predicted_confidence": 0.689499,
+        "predicted_std": 0.22289,
+        "actual_confidence": 0.742531,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 13,
+        "predicted_confidence": 0.741098,
+        "predicted_std": 0.223386,
+        "actual_confidence": 0.742072,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 14,
+        "predicted_confidence": 0.716754,
+        "predicted_std": 0.222659,
+        "actual_confidence": 0.756999,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 15,
+        "predicted_confidence": 0.732112,
+        "predicted_std": 0.223655,
+        "actual_confidence": 0.739761,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.007649,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 16,
+        "predicted_confidence": 0.701962,
+        "predicted_std": 0.219012,
+        "actual_confidence": 0.739564,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 17,
+        "predicted_confidence": 0.693849,
+        "predicted_std": 0.219411,
+        "actual_confidence": 0.740356,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 18,
+        "predicted_confidence": 0.715832,
+        "predicted_std": 0.219565,
+        "actual_confidence": 0.736151,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 19,
+        "predicted_confidence": 0.73891,
+        "predicted_std": 0.219852,
+        "actual_confidence": 0.734674,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 20,
+        "predicted_confidence": 0.727172,
+        "predicted_std": 0.219908,
+        "actual_confidence": 0.740742,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.01357,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 21,
+        "predicted_confidence": 0.737571,
+        "predicted_std": 0.216153,
+        "actual_confidence": 0.736636,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 22,
+        "predicted_confidence": 0.706569,
+        "predicted_std": 0.215937,
+        "actual_confidence": 0.737532,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 23,
+        "predicted_confidence": 0.724471,
+        "predicted_std": 0.216139,
+        "actual_confidence": 0.742213,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 24,
+        "predicted_confidence": 0.727591,
+        "predicted_std": 0.217226,
+        "actual_confidence": 0.746821,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 25,
+        "predicted_confidence": 0.717755,
+        "predicted_std": 0.218074,
+        "actual_confidence": 0.748396,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.030641,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 26,
+        "predicted_confidence": 0.740517,
+        "predicted_std": 0.214313,
+        "actual_confidence": 0.753982,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 27,
+        "predicted_confidence": 0.750196,
+        "predicted_std": 0.214729,
+        "actual_confidence": 0.757514,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 28,
+        "predicted_confidence": 0.757418,
+        "predicted_std": 0.215159,
+        "actual_confidence": 0.776823,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 29,
+        "predicted_confidence": 0.717542,
+        "predicted_std": 0.215463,
+        "actual_confidence": 0.773595,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 30,
+        "predicted_confidence": 0.740538,
+        "predicted_std": 0.215352,
+        "actual_confidence": 0.779412,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.038874,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 31,
+        "predicted_confidence": 0.716583,
+        "predicted_std": 0.213567,
+        "actual_confidence": 0.778184,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 32,
+        "predicted_confidence": 0.751663,
+        "predicted_std": 0.214772,
+        "actual_confidence": 0.791365,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 33,
+        "predicted_confidence": 0.76672,
+        "predicted_std": 0.216275,
+        "actual_confidence": 0.798238,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 34,
+        "predicted_confidence": 0.707811,
+        "predicted_std": 0.216382,
+        "actual_confidence": 0.784588,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 35,
+        "predicted_confidence": 0.714206,
+        "predicted_std": 0.216626,
+        "actual_confidence": 0.803312,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.089105,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 36,
+        "predicted_confidence": 0.747536,
+        "predicted_std": 0.208864,
+        "actual_confidence": 0.805896,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 37,
+        "predicted_confidence": 0.758103,
+        "predicted_std": 0.208907,
+        "actual_confidence": 0.811214,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 38,
+        "predicted_confidence": 0.772001,
+        "predicted_std": 0.209705,
+        "actual_confidence": 0.802364,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 39,
+        "predicted_confidence": 0.753787,
+        "predicted_std": 0.209757,
+        "actual_confidence": 0.823872,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      }
+    ],
+    "bebf5f5b2a674631ab5c88fd1aa9e87a": [
+      {
+        "frame_idx": 0,
+        "predicted_confidence": 0.715478,
+        "predicted_std": 0.268281,
+        "actual_confidence": 0.883001,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.167523,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 1,
+        "predicted_confidence": 0.789918,
+        "predicted_std": 0.242393,
+        "actual_confidence": 0.87998,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 2,
+        "predicted_confidence": 0.785665,
+        "predicted_std": 0.246699,
+        "actual_confidence": 0.901976,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 3,
+        "predicted_confidence": 0.830672,
+        "predicted_std": 0.248972,
+        "actual_confidence": 0.863588,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 4,
+        "predicted_confidence": 0.809484,
+        "predicted_std": 0.253828,
+        "actual_confidence": 0.890787,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 5,
+        "predicted_confidence": 0.81283,
+        "predicted_std": 0.256262,
+        "actual_confidence": 0.909789,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.096959,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 6,
+        "predicted_confidence": 0.862467,
+        "predicted_std": 0.237241,
+        "actual_confidence": 0.882975,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 7,
+        "predicted_confidence": 0.837673,
+        "predicted_std": 0.241281,
+        "actual_confidence": 0.89936,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 8,
+        "predicted_confidence": 0.783731,
+        "predicted_std": 0.233919,
+        "actual_confidence": 0.906645,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 9,
+        "predicted_confidence": 0.776225,
+        "predicted_std": 0.23639,
+        "actual_confidence": 0.905037,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 10,
+        "predicted_confidence": 0.789775,
+        "predicted_std": 0.239763,
+        "actual_confidence": 0.903663,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.113888,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 11,
+        "predicted_confidence": 0.819087,
+        "predicted_std": 0.219647,
+        "actual_confidence": 0.905791,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 12,
+        "predicted_confidence": 0.79626,
+        "predicted_std": 0.220378,
+        "actual_confidence": 0.897453,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 13,
+        "predicted_confidence": 0.836035,
+        "predicted_std": 0.223157,
+        "actual_confidence": 0.895187,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 14,
+        "predicted_confidence": 0.851395,
+        "predicted_std": 0.222938,
+        "actual_confidence": 0.896067,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 15,
+        "predicted_confidence": 0.764557,
+        "predicted_std": 0.214417,
+        "actual_confidence": 0.905698,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.141141,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 16,
+        "predicted_confidence": 0.702202,
+        "predicted_std": 0.211429,
+        "actual_confidence": 0.916866,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 17,
+        "predicted_confidence": 0.693323,
+        "predicted_std": 0.211291,
+        "actual_confidence": 0.917196,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 18,
+        "predicted_confidence": 0.80976,
+        "predicted_std": 0.214468,
+        "actual_confidence": 0.926199,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 19,
+        "predicted_confidence": 0.833882,
+        "predicted_std": 0.21536,
+        "actual_confidence": 0.915497,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 20,
+        "predicted_confidence": 0.868475,
+        "predicted_std": 0.215764,
+        "actual_confidence": 0.915859,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.047384,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 21,
+        "predicted_confidence": 0.909014,
+        "predicted_std": 0.215665,
+        "actual_confidence": 0.917946,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 22,
+        "predicted_confidence": 0.968625,
+        "predicted_std": 0.21827,
+        "actual_confidence": 0.91673,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 23,
+        "predicted_confidence": 0.880835,
+        "predicted_std": 0.216835,
+        "actual_confidence": 0.918814,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 24,
+        "predicted_confidence": 0.85372,
+        "predicted_std": 0.216361,
+        "actual_confidence": 0.936075,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 25,
+        "predicted_confidence": 0.834234,
+        "predicted_std": 0.218302,
+        "actual_confidence": 0.922102,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.087868,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 26,
+        "predicted_confidence": 0.880471,
+        "predicted_std": 0.214595,
+        "actual_confidence": 0.910337,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 27,
+        "predicted_confidence": 0.935003,
+        "predicted_std": 0.218784,
+        "actual_confidence": 0.901972,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 28,
+        "predicted_confidence": 0.92387,
+        "predicted_std": 0.219585,
+        "actual_confidence": 0.912778,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 29,
+        "predicted_confidence": 0.96928,
+        "predicted_std": 0.218617,
+        "actual_confidence": 0.875654,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 30,
+        "predicted_confidence": 0.995058,
+        "predicted_std": 0.220349,
+        "actual_confidence": 0.873491,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.121567,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 31,
+        "predicted_confidence": 0.839819,
+        "predicted_std": 0.216767,
+        "actual_confidence": 0.855325,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 32,
+        "predicted_confidence": 0.757707,
+        "predicted_std": 0.214458,
+        "actual_confidence": 0.90286,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 33,
+        "predicted_confidence": 0.795681,
+        "predicted_std": 0.214416,
+        "actual_confidence": 0.901297,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 34,
+        "predicted_confidence": 0.821633,
+        "predicted_std": 0.215011,
+        "actual_confidence": 0.886432,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 35,
+        "predicted_confidence": 0.887873,
+        "predicted_std": 0.217265,
+        "actual_confidence": 0.865067,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.022806,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 36,
+        "predicted_confidence": 0.961743,
+        "predicted_std": 0.218804,
+        "actual_confidence": 0.874592,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 37,
+        "predicted_confidence": 1.0,
+        "predicted_std": 0.228719,
+        "actual_confidence": 0.856137,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 38,
+        "predicted_confidence": 0.91068,
+        "predicted_std": 0.216801,
+        "actual_confidence": 0.854712,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 39,
+        "predicted_confidence": 0.929553,
+        "predicted_std": 0.219022,
+        "actual_confidence": 0.845956,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      }
+    ],
+    "2fc3753772e241f2ab2cd16a784cc680": [
+      {
+        "frame_idx": 0,
+        "predicted_confidence": 0.325294,
+        "predicted_std": 0.282917,
+        "actual_confidence": 0.833026,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.507732,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 1,
+        "predicted_confidence": 0.563288,
+        "predicted_std": 0.245288,
+        "actual_confidence": 0.832895,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 2,
+        "predicted_confidence": 0.573796,
+        "predicted_std": 0.24543,
+        "actual_confidence": 0.818434,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 3,
+        "predicted_confidence": 0.589029,
+        "predicted_std": 0.246167,
+        "actual_confidence": 0.817782,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 4,
+        "predicted_confidence": 0.58838,
+        "predicted_std": 0.246134,
+        "actual_confidence": 0.786192,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 5,
+        "predicted_confidence": 0.577289,
+        "predicted_std": 0.24517,
+        "actual_confidence": 0.81172,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.234431,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 6,
+        "predicted_confidence": 0.655499,
+        "predicted_std": 0.230469,
+        "actual_confidence": 0.763944,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 7,
+        "predicted_confidence": 0.646099,
+        "predicted_std": 0.230607,
+        "actual_confidence": 0.805556,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 8,
+        "predicted_confidence": 0.642578,
+        "predicted_std": 0.2304,
+        "actual_confidence": 0.75293,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 9,
+        "predicted_confidence": 0.641638,
+        "predicted_std": 0.229632,
+        "actual_confidence": 0.716731,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 10,
+        "predicted_confidence": 0.637824,
+        "predicted_std": 0.229716,
+        "actual_confidence": 0.716538,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.078714,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 11,
+        "predicted_confidence": 0.655656,
+        "predicted_std": 0.223165,
+        "actual_confidence": 0.706997,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 12,
+        "predicted_confidence": 0.64068,
+        "predicted_std": 0.223968,
+        "actual_confidence": 0.705799,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 13,
+        "predicted_confidence": 0.691024,
+        "predicted_std": 0.223247,
+        "actual_confidence": 0.687612,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 14,
+        "predicted_confidence": 0.66901,
+        "predicted_std": 0.223991,
+        "actual_confidence": 0.671324,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 15,
+        "predicted_confidence": 0.699269,
+        "predicted_std": 0.223113,
+        "actual_confidence": 0.648359,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.05091,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 16,
+        "predicted_confidence": 0.6979,
+        "predicted_std": 0.218847,
+        "actual_confidence": 0.621912,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 17,
+        "predicted_confidence": 0.665129,
+        "predicted_std": 0.218875,
+        "actual_confidence": 0.580907,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 18,
+        "predicted_confidence": 0.679721,
+        "predicted_std": 0.218683,
+        "actual_confidence": 0.556185,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 19,
+        "predicted_confidence": 0.683204,
+        "predicted_std": 0.218886,
+        "actual_confidence": 0.585382,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 20,
+        "predicted_confidence": 0.651533,
+        "predicted_std": 0.219321,
+        "actual_confidence": 0.609522,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.042011,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 21,
+        "predicted_confidence": 0.655773,
+        "predicted_std": 0.215935,
+        "actual_confidence": 0.609844,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 22,
+        "predicted_confidence": 0.638845,
+        "predicted_std": 0.21653,
+        "actual_confidence": 0.636392,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 23,
+        "predicted_confidence": 0.654612,
+        "predicted_std": 0.216235,
+        "actual_confidence": 0.621922,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 24,
+        "predicted_confidence": 0.607369,
+        "predicted_std": 0.216893,
+        "actual_confidence": 0.622298,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 25,
+        "predicted_confidence": 0.592689,
+        "predicted_std": 0.217596,
+        "actual_confidence": 0.604506,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.011817,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 26,
+        "predicted_confidence": 0.587386,
+        "predicted_std": 0.215558,
+        "actual_confidence": 0.600491,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 27,
+        "predicted_confidence": 0.579773,
+        "predicted_std": 0.216244,
+        "actual_confidence": 0.61923,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 28,
+        "predicted_confidence": 0.569421,
+        "predicted_std": 0.215785,
+        "actual_confidence": 0.635609,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 29,
+        "predicted_confidence": 0.575928,
+        "predicted_std": 0.215495,
+        "actual_confidence": 0.618429,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 30,
+        "predicted_confidence": 0.567317,
+        "predicted_std": 0.216286,
+        "actual_confidence": 0.637047,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.06973,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 31,
+        "predicted_confidence": 0.578336,
+        "predicted_std": 0.214261,
+        "actual_confidence": 0.665277,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 32,
+        "predicted_confidence": 0.553465,
+        "predicted_std": 0.214836,
+        "actual_confidence": 0.665093,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 33,
+        "predicted_confidence": 0.571087,
+        "predicted_std": 0.214578,
+        "actual_confidence": 0.639818,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 34,
+        "predicted_confidence": 0.548746,
+        "predicted_std": 0.2163,
+        "actual_confidence": 0.6578,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 35,
+        "predicted_confidence": 0.635119,
+        "predicted_std": 0.212723,
+        "actual_confidence": 0.713353,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.078234,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 36,
+        "predicted_confidence": 0.63602,
+        "predicted_std": 0.211468,
+        "actual_confidence": 0.744752,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 37,
+        "predicted_confidence": 0.63382,
+        "predicted_std": 0.211452,
+        "actual_confidence": 0.729758,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 38,
+        "predicted_confidence": 0.601842,
+        "predicted_std": 0.213495,
+        "actual_confidence": 0.780207,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 39,
+        "predicted_confidence": 0.582125,
+        "predicted_std": 0.213731,
+        "actual_confidence": 0.806505,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      }
+    ],
+    "c5224b9b454b4ded9b5d2d2634bbda8a": [
+      {
+        "frame_idx": 0,
+        "predicted_confidence": 0.445121,
+        "predicted_std": 0.244114,
+        "actual_confidence": 0.207108,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.238013,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 1,
+        "predicted_confidence": 0.334784,
+        "predicted_std": 0.231173,
+        "actual_confidence": 0.244385,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 2,
+        "predicted_confidence": 0.327642,
+        "predicted_std": 0.230471,
+        "actual_confidence": 0.260357,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 3,
+        "predicted_confidence": 0.372187,
+        "predicted_std": 0.230692,
+        "actual_confidence": 0.242334,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 4,
+        "predicted_confidence": 0.339682,
+        "predicted_std": 0.232801,
+        "actual_confidence": 0.212452,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 5,
+        "predicted_confidence": 0.367354,
+        "predicted_std": 0.235997,
+        "actual_confidence": 0.210672,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.156682,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 6,
+        "predicted_confidence": 0.294304,
+        "predicted_std": 0.22151,
+        "actual_confidence": 0.272562,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 7,
+        "predicted_confidence": 0.250166,
+        "predicted_std": 0.221481,
+        "actual_confidence": 0.272147,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 8,
+        "predicted_confidence": 0.283834,
+        "predicted_std": 0.221562,
+        "actual_confidence": 0.278244,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 9,
+        "predicted_confidence": 0.33111,
+        "predicted_std": 0.224532,
+        "actual_confidence": 0.281437,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 10,
+        "predicted_confidence": 0.37832,
+        "predicted_std": 0.232987,
+        "actual_confidence": 0.331348,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.046972,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 11,
+        "predicted_confidence": 0.412239,
+        "predicted_std": 0.221239,
+        "actual_confidence": 0.287961,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 12,
+        "predicted_confidence": 0.463933,
+        "predicted_std": 0.231487,
+        "actual_confidence": 0.327668,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 13,
+        "predicted_confidence": 0.433344,
+        "predicted_std": 0.236782,
+        "actual_confidence": 0.364622,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 14,
+        "predicted_confidence": 0.394545,
+        "predicted_std": 0.227306,
+        "actual_confidence": 0.347546,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 15,
+        "predicted_confidence": 0.39069,
+        "predicted_std": 0.226504,
+        "actual_confidence": 0.284221,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.106469,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 16,
+        "predicted_confidence": 0.360889,
+        "predicted_std": 0.21612,
+        "actual_confidence": 0.301028,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 17,
+        "predicted_confidence": 0.36167,
+        "predicted_std": 0.216718,
+        "actual_confidence": 0.326768,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 18,
+        "predicted_confidence": 0.375161,
+        "predicted_std": 0.214115,
+        "actual_confidence": 0.342031,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 19,
+        "predicted_confidence": 0.332038,
+        "predicted_std": 0.214316,
+        "actual_confidence": 0.479437,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 20,
+        "predicted_confidence": 0.315297,
+        "predicted_std": 0.213841,
+        "actual_confidence": 0.40618,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.090884,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 21,
+        "predicted_confidence": 0.375087,
+        "predicted_std": 0.213442,
+        "actual_confidence": 0.360788,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 22,
+        "predicted_confidence": 0.343428,
+        "predicted_std": 0.214135,
+        "actual_confidence": 0.263422,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 23,
+        "predicted_confidence": 0.35761,
+        "predicted_std": 0.212316,
+        "actual_confidence": 0.257367,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 24,
+        "predicted_confidence": 0.401965,
+        "predicted_std": 0.213308,
+        "actual_confidence": 0.352759,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 25,
+        "predicted_confidence": 0.404251,
+        "predicted_std": 0.212839,
+        "actual_confidence": 0.339713,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.064538,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 26,
+        "predicted_confidence": 0.404581,
+        "predicted_std": 0.211302,
+        "actual_confidence": 0.371281,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 27,
+        "predicted_confidence": 0.348849,
+        "predicted_std": 0.210679,
+        "actual_confidence": 0.383676,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 28,
+        "predicted_confidence": 0.391865,
+        "predicted_std": 0.210696,
+        "actual_confidence": 0.367027,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 29,
+        "predicted_confidence": 0.400009,
+        "predicted_std": 0.210229,
+        "actual_confidence": 0.451935,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 30,
+        "predicted_confidence": 0.388502,
+        "predicted_std": 0.20989,
+        "actual_confidence": 0.423569,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.035066,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 31,
+        "predicted_confidence": 0.382086,
+        "predicted_std": 0.209322,
+        "actual_confidence": 0.266803,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 32,
+        "predicted_confidence": 0.375558,
+        "predicted_std": 0.21096,
+        "actual_confidence": 0.273356,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 33,
+        "predicted_confidence": 0.247347,
+        "predicted_std": 0.216393,
+        "actual_confidence": 0.09474,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 34,
+        "predicted_confidence": 0.286146,
+        "predicted_std": 0.211249,
+        "actual_confidence": 0.127923,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 35,
+        "predicted_confidence": 0.297673,
+        "predicted_std": 0.21059,
+        "actual_confidence": 0.127814,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.169859,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 36,
+        "predicted_confidence": 0.332517,
+        "predicted_std": 0.208881,
+        "actual_confidence": 0.064678,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 37,
+        "predicted_confidence": 0.328795,
+        "predicted_std": 0.209489,
+        "actual_confidence": 0.0993,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 38,
+        "predicted_confidence": 0.318031,
+        "predicted_std": 0.210083,
+        "actual_confidence": 0.087491,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      }
+    ],
+    "325cef682f064c55a255f2625c533b75": [
+      {
+        "frame_idx": 0,
+        "predicted_confidence": 0.749856,
+        "predicted_std": 0.210744,
+        "actual_confidence": 0.836573,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.086717,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 1,
+        "predicted_confidence": 0.783922,
+        "predicted_std": 0.212896,
+        "actual_confidence": 0.846149,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 2,
+        "predicted_confidence": 0.735538,
+        "predicted_std": 0.20669,
+        "actual_confidence": 0.878247,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 3,
+        "predicted_confidence": 0.748218,
+        "predicted_std": 0.206864,
+        "actual_confidence": 0.861854,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 4,
+        "predicted_confidence": 0.738102,
+        "predicted_std": 0.206182,
+        "actual_confidence": 0.882146,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 5,
+        "predicted_confidence": 0.72268,
+        "predicted_std": 0.204927,
+        "actual_confidence": 0.875417,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.152737,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 6,
+        "predicted_confidence": 0.717148,
+        "predicted_std": 0.204516,
+        "actual_confidence": 0.880293,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 7,
+        "predicted_confidence": 0.745506,
+        "predicted_std": 0.205152,
+        "actual_confidence": 0.879356,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 8,
+        "predicted_confidence": 0.736843,
+        "predicted_std": 0.204883,
+        "actual_confidence": 0.888107,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 9,
+        "predicted_confidence": 0.732111,
+        "predicted_std": 0.204738,
+        "actual_confidence": 0.886193,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 10,
+        "predicted_confidence": 0.737434,
+        "predicted_std": 0.204966,
+        "actual_confidence": 0.886649,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.149214,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 11,
+        "predicted_confidence": 0.719854,
+        "predicted_std": 0.20448,
+        "actual_confidence": 0.87443,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 12,
+        "predicted_confidence": 0.777115,
+        "predicted_std": 0.205943,
+        "actual_confidence": 0.868162,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 13,
+        "predicted_confidence": 0.786566,
+        "predicted_std": 0.206578,
+        "actual_confidence": 0.88213,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 14,
+        "predicted_confidence": 0.790785,
+        "predicted_std": 0.206605,
+        "actual_confidence": 0.860675,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 15,
+        "predicted_confidence": 0.821473,
+        "predicted_std": 0.208855,
+        "actual_confidence": 0.877312,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.055839,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 16,
+        "predicted_confidence": 0.803034,
+        "predicted_std": 0.206377,
+        "actual_confidence": 0.892843,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 17,
+        "predicted_confidence": 0.834243,
+        "predicted_std": 0.208254,
+        "actual_confidence": 0.899144,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 18,
+        "predicted_confidence": 0.905146,
+        "predicted_std": 0.216724,
+        "actual_confidence": 0.911354,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 19,
+        "predicted_confidence": 0.840007,
+        "predicted_std": 0.208236,
+        "actual_confidence": 0.914712,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 20,
+        "predicted_confidence": 0.831689,
+        "predicted_std": 0.207451,
+        "actual_confidence": 0.926443,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.094754,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 21,
+        "predicted_confidence": 0.894962,
+        "predicted_std": 0.210336,
+        "actual_confidence": 0.926913,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 22,
+        "predicted_confidence": 0.882659,
+        "predicted_std": 0.209222,
+        "actual_confidence": 0.915216,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 23,
+        "predicted_confidence": 0.704222,
+        "predicted_std": 0.21144,
+        "actual_confidence": 0.921705,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 24,
+        "predicted_confidence": 0.7556,
+        "predicted_std": 0.211679,
+        "actual_confidence": 0.922296,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 25,
+        "predicted_confidence": 0.771974,
+        "predicted_std": 0.208202,
+        "actual_confidence": 0.932289,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.160315,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 26,
+        "predicted_confidence": 0.721867,
+        "predicted_std": 0.202966,
+        "actual_confidence": 0.92752,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 27,
+        "predicted_confidence": 0.783071,
+        "predicted_std": 0.207348,
+        "actual_confidence": 0.94224,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 28,
+        "predicted_confidence": 0.84103,
+        "predicted_std": 0.214811,
+        "actual_confidence": 0.93963,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 29,
+        "predicted_confidence": 0.884464,
+        "predicted_std": 0.213352,
+        "actual_confidence": 0.9365,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 30,
+        "predicted_confidence": 0.980298,
+        "predicted_std": 0.221035,
+        "actual_confidence": 0.924913,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.055385,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 31,
+        "predicted_confidence": 1.0,
+        "predicted_std": 0.219108,
+        "actual_confidence": 0.941081,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 32,
+        "predicted_confidence": 0.983605,
+        "predicted_std": 0.214641,
+        "actual_confidence": 0.93263,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 33,
+        "predicted_confidence": 0.994614,
+        "predicted_std": 0.215358,
+        "actual_confidence": 0.944858,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 34,
+        "predicted_confidence": 1.0,
+        "predicted_std": 0.215777,
+        "actual_confidence": 0.921719,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 35,
+        "predicted_confidence": 1.0,
+        "predicted_std": 0.218833,
+        "actual_confidence": 0.92765,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.07235,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 36,
+        "predicted_confidence": 1.0,
+        "predicted_std": 0.224949,
+        "actual_confidence": 0.902709,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 37,
+        "predicted_confidence": 1.0,
+        "predicted_std": 0.223175,
+        "actual_confidence": 0.918234,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 38,
+        "predicted_confidence": 0.995923,
+        "predicted_std": 0.222455,
+        "actual_confidence": 0.908257,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 39,
+        "predicted_confidence": 0.904445,
+        "predicted_std": 0.228018,
+        "actual_confidence": 0.889748,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      }
+    ],
+    "d25718445d89453381c659b9c8734939": [
+      {
+        "frame_idx": 0,
+        "predicted_confidence": 0.489713,
+        "predicted_std": 0.213523,
+        "actual_confidence": 0.311351,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.178362,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 1,
+        "predicted_confidence": 0.498028,
+        "predicted_std": 0.210503,
+        "actual_confidence": 0.346913,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 2,
+        "predicted_confidence": 0.398795,
+        "predicted_std": 0.21655,
+        "actual_confidence": 0.312194,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 3,
+        "predicted_confidence": 0.36136,
+        "predicted_std": 0.214794,
+        "actual_confidence": 0.293356,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 4,
+        "predicted_confidence": 0.397451,
+        "predicted_std": 0.206488,
+        "actual_confidence": 0.269565,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 5,
+        "predicted_confidence": 0.324071,
+        "predicted_std": 0.207861,
+        "actual_confidence": 0.293148,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.030923,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 6,
+        "predicted_confidence": 0.283639,
+        "predicted_std": 0.210707,
+        "actual_confidence": 0.237124,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 7,
+        "predicted_confidence": 0.316907,
+        "predicted_std": 0.208545,
+        "actual_confidence": 0.211998,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 8,
+        "predicted_confidence": 0.393315,
+        "predicted_std": 0.207327,
+        "actual_confidence": 0.196575,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 9,
+        "predicted_confidence": 0.345288,
+        "predicted_std": 0.208898,
+        "actual_confidence": 0.195589,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 10,
+        "predicted_confidence": 0.312839,
+        "predicted_std": 0.209529,
+        "actual_confidence": 0.192009,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.12083,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 11,
+        "predicted_confidence": 0.275369,
+        "predicted_std": 0.210539,
+        "actual_confidence": 0.159073,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 12,
+        "predicted_confidence": 0.298203,
+        "predicted_std": 0.208217,
+        "actual_confidence": 0.090746,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 13,
+        "predicted_confidence": 0.378406,
+        "predicted_std": 0.208543,
+        "actual_confidence": 0.096978,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 14,
+        "predicted_confidence": 0.351674,
+        "predicted_std": 0.20912,
+        "actual_confidence": 0.096372,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 15,
+        "predicted_confidence": 0.189567,
+        "predicted_std": 0.220486,
+        "actual_confidence": 0.081748,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.107819,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 16,
+        "predicted_confidence": 0.439134,
+        "predicted_std": 0.208219,
+        "actual_confidence": 0.161869,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 17,
+        "predicted_confidence": 0.254235,
+        "predicted_std": 0.211429,
+        "actual_confidence": 0.163786,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 18,
+        "predicted_confidence": 0.0,
+        "predicted_std": 0.227933,
+        "actual_confidence": 0.182259,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 19,
+        "predicted_confidence": 0.339418,
+        "predicted_std": 0.209124,
+        "actual_confidence": 0.18433,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 20,
+        "predicted_confidence": 0.294328,
+        "predicted_std": 0.212253,
+        "actual_confidence": 0.248497,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.045831,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 21,
+        "predicted_confidence": 0.289125,
+        "predicted_std": 0.211341,
+        "actual_confidence": 0.224819,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 22,
+        "predicted_confidence": 0.190277,
+        "predicted_std": 0.212891,
+        "actual_confidence": 0.210405,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 23,
+        "predicted_confidence": 0.227079,
+        "predicted_std": 0.210507,
+        "actual_confidence": 0.241685,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 24,
+        "predicted_confidence": 0.272459,
+        "predicted_std": 0.209369,
+        "actual_confidence": 0.241662,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 25,
+        "predicted_confidence": 0.292688,
+        "predicted_std": 0.209164,
+        "actual_confidence": 0.264582,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.028106,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 26,
+        "predicted_confidence": 0.247994,
+        "predicted_std": 0.209095,
+        "actual_confidence": 0.27446,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 27,
+        "predicted_confidence": 0.237145,
+        "predicted_std": 0.209592,
+        "actual_confidence": 0.320122,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 28,
+        "predicted_confidence": 0.281427,
+        "predicted_std": 0.209339,
+        "actual_confidence": 0.393572,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 29,
+        "predicted_confidence": 0.266982,
+        "predicted_std": 0.209885,
+        "actual_confidence": 0.552644,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 30,
+        "predicted_confidence": 0.241082,
+        "predicted_std": 0.211338,
+        "actual_confidence": 0.615024,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.373943,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 31,
+        "predicted_confidence": 0.314783,
+        "predicted_std": 0.210215,
+        "actual_confidence": 0.66,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 32,
+        "predicted_confidence": 0.321751,
+        "predicted_std": 0.209732,
+        "actual_confidence": 0.669392,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 33,
+        "predicted_confidence": 0.346513,
+        "predicted_std": 0.209592,
+        "actual_confidence": 0.677089,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 34,
+        "predicted_confidence": 0.319492,
+        "predicted_std": 0.209979,
+        "actual_confidence": 0.628695,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 35,
+        "predicted_confidence": 0.384421,
+        "predicted_std": 0.215565,
+        "actual_confidence": 0.612739,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.228318,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 36,
+        "predicted_confidence": 0.408337,
+        "predicted_std": 0.213362,
+        "actual_confidence": 0.582199,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 37,
+        "predicted_confidence": 0.393111,
+        "predicted_std": 0.212758,
+        "actual_confidence": 0.565275,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 38,
+        "predicted_confidence": 0.329054,
+        "predicted_std": 0.211303,
+        "actual_confidence": 0.499386,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 39,
+        "predicted_confidence": 0.365858,
+        "predicted_std": 0.210718,
+        "actual_confidence": 0.398,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      }
+    ],
+    "de7d80a1f5fb4c3e82ce8a4f213b450a": [
+      {
+        "frame_idx": 0,
+        "predicted_confidence": 0.758765,
+        "predicted_std": 0.206111,
+        "actual_confidence": 0.473452,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.285313,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 1,
+        "predicted_confidence": 0.751351,
+        "predicted_std": 0.206007,
+        "actual_confidence": 0.495724,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 2,
+        "predicted_confidence": 0.737404,
+        "predicted_std": 0.205625,
+        "actual_confidence": 0.505849,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 3,
+        "predicted_confidence": 0.823378,
+        "predicted_std": 0.205491,
+        "actual_confidence": 0.509147,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 4,
+        "predicted_confidence": 0.861786,
+        "predicted_std": 0.206067,
+        "actual_confidence": 0.499638,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 5,
+        "predicted_confidence": 0.850966,
+        "predicted_std": 0.204284,
+        "actual_confidence": 0.53509,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.315876,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 6,
+        "predicted_confidence": 0.850516,
+        "predicted_std": 0.204246,
+        "actual_confidence": 0.497113,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 7,
+        "predicted_confidence": 0.849741,
+        "predicted_std": 0.203857,
+        "actual_confidence": 0.492268,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 8,
+        "predicted_confidence": 0.87985,
+        "predicted_std": 0.204616,
+        "actual_confidence": 0.50268,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 9,
+        "predicted_confidence": 0.890087,
+        "predicted_std": 0.205475,
+        "actual_confidence": 0.497858,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 10,
+        "predicted_confidence": 0.883781,
+        "predicted_std": 0.206088,
+        "actual_confidence": 0.490186,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.393594,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 11,
+        "predicted_confidence": 0.856521,
+        "predicted_std": 0.207219,
+        "actual_confidence": 0.497159,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 12,
+        "predicted_confidence": 0.874079,
+        "predicted_std": 0.208054,
+        "actual_confidence": 0.495114,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 13,
+        "predicted_confidence": 0.847137,
+        "predicted_std": 0.206687,
+        "actual_confidence": 0.500715,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 14,
+        "predicted_confidence": 0.813387,
+        "predicted_std": 0.204667,
+        "actual_confidence": 0.491757,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 15,
+        "predicted_confidence": 0.777894,
+        "predicted_std": 0.202913,
+        "actual_confidence": 0.506759,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.271135,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 16,
+        "predicted_confidence": 0.719252,
+        "predicted_std": 0.201686,
+        "actual_confidence": 0.523606,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 17,
+        "predicted_confidence": 0.698396,
+        "predicted_std": 0.201448,
+        "actual_confidence": 0.547676,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 18,
+        "predicted_confidence": 0.702194,
+        "predicted_std": 0.201463,
+        "actual_confidence": 0.563536,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 19,
+        "predicted_confidence": 0.88464,
+        "predicted_std": 0.211228,
+        "actual_confidence": 0.558488,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 20,
+        "predicted_confidence": 0.841892,
+        "predicted_std": 0.212937,
+        "actual_confidence": 0.566573,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.275319,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 21,
+        "predicted_confidence": 0.785411,
+        "predicted_std": 0.208788,
+        "actual_confidence": 0.613302,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 22,
+        "predicted_confidence": 0.757773,
+        "predicted_std": 0.207047,
+        "actual_confidence": 0.590122,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 23,
+        "predicted_confidence": 0.748257,
+        "predicted_std": 0.20704,
+        "actual_confidence": 0.63654,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 24,
+        "predicted_confidence": 0.739958,
+        "predicted_std": 0.20806,
+        "actual_confidence": 0.639857,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 25,
+        "predicted_confidence": 0.815645,
+        "predicted_std": 0.214843,
+        "actual_confidence": 0.608473,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.207171,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 26,
+        "predicted_confidence": 0.751532,
+        "predicted_std": 0.209956,
+        "actual_confidence": 0.570643,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 27,
+        "predicted_confidence": 0.722171,
+        "predicted_std": 0.208201,
+        "actual_confidence": 0.566742,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 28,
+        "predicted_confidence": 0.724407,
+        "predicted_std": 0.210444,
+        "actual_confidence": 0.5515,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 29,
+        "predicted_confidence": 0.730179,
+        "predicted_std": 0.215108,
+        "actual_confidence": 0.557654,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 30,
+        "predicted_confidence": 0.69738,
+        "predicted_std": 0.211787,
+        "actual_confidence": 0.619358,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.078022,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 31,
+        "predicted_confidence": 0.679052,
+        "predicted_std": 0.213752,
+        "actual_confidence": 0.571541,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 32,
+        "predicted_confidence": 0.663586,
+        "predicted_std": 0.215761,
+        "actual_confidence": 0.593186,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 33,
+        "predicted_confidence": 0.754319,
+        "predicted_std": 0.221728,
+        "actual_confidence": 0.492088,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 34,
+        "predicted_confidence": 0.680065,
+        "predicted_std": 0.216622,
+        "actual_confidence": 0.388974,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 35,
+        "predicted_confidence": 0.69289,
+        "predicted_std": 0.21596,
+        "actual_confidence": 0.408999,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.283891,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 36,
+        "predicted_confidence": 0.5896,
+        "predicted_std": 0.208042,
+        "actual_confidence": 0.332678,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 37,
+        "predicted_confidence": 0.580994,
+        "predicted_std": 0.210466,
+        "actual_confidence": 0.298745,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 38,
+        "predicted_confidence": 0.577413,
+        "predicted_std": 0.209892,
+        "actual_confidence": 0.267532,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      }
+    ],
+    "e233467e827140efa4b42d2b4c435855": [
+      {
+        "frame_idx": 0,
+        "predicted_confidence": 0.722022,
+        "predicted_std": 0.220376,
+        "actual_confidence": 0.672744,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.049278,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 1,
+        "predicted_confidence": 0.706385,
+        "predicted_std": 0.215306,
+        "actual_confidence": 0.667475,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 2,
+        "predicted_confidence": 0.558157,
+        "predicted_std": 0.21785,
+        "actual_confidence": 0.645594,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 3,
+        "predicted_confidence": 0.550285,
+        "predicted_std": 0.221615,
+        "actual_confidence": 0.655387,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 4,
+        "predicted_confidence": 0.542243,
+        "predicted_std": 0.2225,
+        "actual_confidence": 0.664866,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 5,
+        "predicted_confidence": 0.554035,
+        "predicted_std": 0.218546,
+        "actual_confidence": 0.665894,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.111859,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 6,
+        "predicted_confidence": 0.585541,
+        "predicted_std": 0.217955,
+        "actual_confidence": 0.665833,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 7,
+        "predicted_confidence": 0.599173,
+        "predicted_std": 0.211554,
+        "actual_confidence": 0.661206,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 8,
+        "predicted_confidence": 0.646029,
+        "predicted_std": 0.214253,
+        "actual_confidence": 0.628648,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 9,
+        "predicted_confidence": 0.662311,
+        "predicted_std": 0.215341,
+        "actual_confidence": 0.620676,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 10,
+        "predicted_confidence": 0.659903,
+        "predicted_std": 0.213704,
+        "actual_confidence": 0.602479,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.057425,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 11,
+        "predicted_confidence": 0.649372,
+        "predicted_std": 0.211224,
+        "actual_confidence": 0.603517,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 12,
+        "predicted_confidence": 0.642175,
+        "predicted_std": 0.210089,
+        "actual_confidence": 0.589524,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 13,
+        "predicted_confidence": 0.650149,
+        "predicted_std": 0.211023,
+        "actual_confidence": 0.578546,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 14,
+        "predicted_confidence": 0.656197,
+        "predicted_std": 0.211865,
+        "actual_confidence": 0.59005,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 15,
+        "predicted_confidence": 0.643669,
+        "predicted_std": 0.210443,
+        "actual_confidence": 0.601705,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.041964,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 16,
+        "predicted_confidence": 0.649613,
+        "predicted_std": 0.209989,
+        "actual_confidence": 0.613133,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 17,
+        "predicted_confidence": 0.741795,
+        "predicted_std": 0.209501,
+        "actual_confidence": 0.60923,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 18,
+        "predicted_confidence": 0.745729,
+        "predicted_std": 0.210923,
+        "actual_confidence": 0.623815,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 19,
+        "predicted_confidence": 0.743508,
+        "predicted_std": 0.210142,
+        "actual_confidence": 0.585318,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 20,
+        "predicted_confidence": 0.741281,
+        "predicted_std": 0.208576,
+        "actual_confidence": 0.597924,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.143358,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 21,
+        "predicted_confidence": 0.73966,
+        "predicted_std": 0.209815,
+        "actual_confidence": 0.526788,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 22,
+        "predicted_confidence": 0.749391,
+        "predicted_std": 0.211265,
+        "actual_confidence": 0.529422,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 23,
+        "predicted_confidence": 0.764861,
+        "predicted_std": 0.214851,
+        "actual_confidence": 0.553829,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 24,
+        "predicted_confidence": 0.773523,
+        "predicted_std": 0.212831,
+        "actual_confidence": 0.556757,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 25,
+        "predicted_confidence": 0.794265,
+        "predicted_std": 0.21419,
+        "actual_confidence": 0.582696,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.211569,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 26,
+        "predicted_confidence": 0.769688,
+        "predicted_std": 0.213413,
+        "actual_confidence": 0.637341,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 27,
+        "predicted_confidence": 0.760918,
+        "predicted_std": 0.213743,
+        "actual_confidence": 0.640869,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 28,
+        "predicted_confidence": 0.760457,
+        "predicted_std": 0.213927,
+        "actual_confidence": 0.628182,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 29,
+        "predicted_confidence": 0.763545,
+        "predicted_std": 0.214038,
+        "actual_confidence": 0.634698,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 30,
+        "predicted_confidence": 0.771594,
+        "predicted_std": 0.216643,
+        "actual_confidence": 0.649513,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.122081,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 31,
+        "predicted_confidence": 0.755951,
+        "predicted_std": 0.211355,
+        "actual_confidence": 0.655479,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 32,
+        "predicted_confidence": 0.75854,
+        "predicted_std": 0.21258,
+        "actual_confidence": 0.647117,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 33,
+        "predicted_confidence": 0.76378,
+        "predicted_std": 0.212979,
+        "actual_confidence": 0.636279,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 34,
+        "predicted_confidence": 0.791016,
+        "predicted_std": 0.216419,
+        "actual_confidence": 0.655696,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 35,
+        "predicted_confidence": 0.644198,
+        "predicted_std": 0.214878,
+        "actual_confidence": 0.674026,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.029829,
+        "is_audit_frame": true
+      },
+      {
+        "frame_idx": 36,
+        "predicted_confidence": 0.625825,
+        "predicted_std": 0.20869,
+        "actual_confidence": 0.64082,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 37,
+        "predicted_confidence": 0.612934,
+        "predicted_std": 0.207747,
+        "actual_confidence": 0.640284,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      },
+      {
+        "frame_idx": 38,
+        "predicted_confidence": 0.558373,
+        "predicted_std": 0.208285,
+        "actual_confidence": 0.648713,
+        "decision": "FULL_DETECTION",
+        "prediction_error": 0.0,
+        "is_audit_frame": false
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 
 
@@ -6,10 +6,13 @@ from typing import List
 class FrameDecision:
     frame_idx: int
     predicted_confidence: float
+    predicted_std: float
     actual_confidence: float
     decision: str
     prediction_error: float
     is_audit_frame: bool
+    scene_id: str = ""
+    timestamp_us: int = 0        # source timestamp in microseconds (0 if unavailable)
 
 
 @dataclass

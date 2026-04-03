@@ -6,9 +6,11 @@ from pyquaternion import Quaternion
 from nuscenes.nuscenes import NuScenes
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-DATAROOT = "data/nuscenes"
+DATAROOT = "/media/tersiteab/e4d56274-b9be-4c36-8ee8-22a4e69c1bc9/home/tersiteab/Documents/PointCloudResearch/frame_similarity/nu_data"
+
+# DATAROOT = "data/nuscenes"
 VERSION  = "v1.0-mini"
-OUTPUT   = "data/json/unified_nuscenes_mini.json"
+OUTPUT   = "unified_nuscenes_mini.json"
 LIDAR_CHAN = "LIDAR_TOP"
 DOWNSAMPLE = 500
 RANDOM_SEED = 42

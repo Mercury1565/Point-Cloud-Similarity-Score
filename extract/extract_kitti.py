@@ -6,8 +6,9 @@ import xml.etree.ElementTree as ET
 from scipy.spatial import cKDTree
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-DATAROOT = "data/kitti/2011_09_26"
-OUTPUT = "data/json/unified_kitti.json"
+DATAROOT      = "/media/tersiteab/new_drive/checker_model/kitti_dataset/2011_09_26/2011_09_26/"  # contains training/velodyne/ or testing/velodyne/
+# DATAROOT = "data/kitti/2011_09_26"
+OUTPUT = "unified_kitti.json"
 DOWNSAMPLE = 500
 RANDOM_SEED = 42
 
@@ -152,6 +153,7 @@ def extract_drive(drive_path: str, tracklet_path: str = None) -> dict:
     lidar_files = sorted(lidar_search)
     
     # Parse tracklets if provided
+    print(f"    Loading tracklets from: {tracklet_path if tracklet_path else 'None'}")
     tracklets = parse_tracklets(tracklet_path) if tracklet_path else []
     if tracklets:
         print(f"    Loaded {len(tracklets)} tracklets.")
@@ -201,7 +203,7 @@ def main():
     if not os.path.exists(DATAROOT):
         print(f"Error: Dataroot {DATAROOT} not found.")
         return
-
+    print(f"Scanning for drive sequences in '{DATAROOT}'...")
     drive_sequences = sorted([d for d in glob.glob(os.path.join(DATAROOT, "*_sync")) if os.path.isdir(d)])
     print(f"Found {len(drive_sequences)} possible drive sequences.")
     
@@ -209,17 +211,28 @@ def main():
     for drive_path in drive_sequences:
         # Find corresponding tracklets
         drive_name = os.path.basename(drive_path)
-        # e.g. 2011_09_26_drive_0002_sync -> 2011_09_26_drive_0002_tracklets
-        tracklet_dir_name = drive_name.replace("_sync", "_tracklets")
-        tracklet_root = os.path.join(DATAROOT, tracklet_dir_name)
-        
+
         tracklet_path = None
-        if os.path.exists(tracklet_root):
-            # Look for tracklet_labels.xml inside (handling nesting)
-            xml_search = glob.glob(os.path.join(tracklet_root, "**/tracklet_labels.xml"), recursive=True)
-            if xml_search:
-                tracklet_path = xml_search[0]
-        
+
+        # Prefer the XML inside the current drive directory.
+        per_drive_search = glob.glob(
+            os.path.join(drive_path, "**/tracklet_labels.xml"), recursive=True
+        )
+        if per_drive_search:
+            tracklet_path = per_drive_search[0]
+            print(f"    Using drive-local tracklet XML: {tracklet_path}")
+        else:
+            # Fallback: search globally and try to match by drive name.
+            xml_search = glob.glob(
+                os.path.join(DATAROOT, "**/tracklet_labels.xml"), recursive=True
+            )
+            matched = [p for p in xml_search if drive_name in p]
+            tracklet_path = matched[0] if matched else (xml_search[0] if xml_search else None)
+            print(
+                f"    Searching for tracklet XML in '{DATAROOT}'... "
+                f"Found: {len(xml_search)} (matched: {len(matched)})"
+            )
+
         scene_data = extract_drive(drive_path, tracklet_path)
         if scene_data:
             all_scenes.append(scene_data)

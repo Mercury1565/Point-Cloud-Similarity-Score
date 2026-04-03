@@ -46,8 +46,11 @@ def safe_float(val: float) -> float:
     return val
 
 def main():
-    scorer = ConfidenceScorer()
-    input_file = 'data/json/unified_kitti.json'
+    # Reset label weighting to baseline
+    m_f1 = 0.5
+    m_miou = 0.5
+    scorer = ConfidenceScorer(w_f1=m_f1, w_miou=m_miou)
+    input_file = 'unified_kitti.json'
 
     output_dir = Path('data/csv')
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -77,9 +80,13 @@ def main():
             fastest_obj_vel = calculate_fastest_vel(objs_prev)
             nearest_obj_dist, farthest_obj_dist = calculate_extreme_distances(objs_prev)
             
-            target_confidence = scorer.calculate_score(objs_t, objs_prev)['confidence_score']
+            score = scorer.calculate_score(objs_t, objs_prev)
+            f1 = score["f1"]
+            miou = score["miou"]
+            target_confidence = score["confidence_score"]
             
             row = [
+                scene['scene_id'],
                 safe_float(chamfer_dist),
                 safe_float(ego_vel),
                 float(obj_count),
@@ -87,11 +94,13 @@ def main():
                 safe_float(fastest_obj_vel),
                 safe_float(nearest_obj_dist),
                 safe_float(farthest_obj_dist),
+                safe_float(f1),
+                safe_float(miou),
                 safe_float(target_confidence)
             ]
             dataset.append(row)
-            
-    headers = ["chamfer_dist", "ego_vel", "obj_count", "avg_dist", "fastest_obj_vel", "nearest_obj_dist", "farthest_obj_dist", "target_confidence"]
+
+    headers = ["scene_id", "chamfer_dist", "ego_vel", "obj_count", "avg_dist", "fastest_obj_vel", "nearest_obj_dist", "farthest_obj_dist", "f1", "miou", "target_confidence"]
     
     with open(output_file, 'w', newline='') as f:
         writer = csv.writer(f)

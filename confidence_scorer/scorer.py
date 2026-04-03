@@ -80,10 +80,10 @@ class GeometryCalculator:
         return poly1.intersection(poly2).area
 
     def _calculate_height_overlap(self, z1: float, h1: float, z2: float, h2: float) -> float:
-        """Calculate 1D overlap along the z-axis."""
-        top1 = z1 + h1
-        top2 = z2 + h2
-        overlap_bottom = max(z1, z2)
+        """Calculate 1D overlap along z-axis, treating z as box center."""
+        bottom1, top1 = z1 - h1 / 2.0, z1 + h1 / 2.0
+        bottom2, top2 = z2 - h2 / 2.0, z2 + h2 / 2.0
+        overlap_bottom = max(bottom1, bottom2)
         overlap_top = min(top1, top2)
         return max(0.0, overlap_top - overlap_bottom)
 
@@ -133,7 +133,8 @@ class ConfidenceScorer:
         validate_frame(frame_t_minus_1)
 
         if not frame_t and not frame_t_minus_1:
-            return {"confidence_score": 0.0, "f1": 0.0, "miou": 0.0}
+            # Two consecutive empty frames are perfectly stable.
+            return {"confidence_score": 1.0, "f1": 1.0, "miou": 1.0}
 
         f1, tp_pairs = IdentityMatcher.calculate_f1_score(frame_t, frame_t_minus_1)
 
